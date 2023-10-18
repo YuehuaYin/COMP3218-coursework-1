@@ -14,6 +14,6 @@ public class BulletScript : MonoBehaviour
     void Update() 
     {
         Debug.Log(mouse.normalized.x);
-        gameObject.velocity = new Vector2(x*speed, y*speed);
+// gameObject.velocity = new Vector2(x*speed, y*speed);
     }
 }

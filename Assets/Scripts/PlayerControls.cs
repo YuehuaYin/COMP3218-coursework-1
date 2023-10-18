@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody2D rb;
     public float speed;
     public float gunCooldown;
     public float meleeCooldown;
@@ -12,11 +12,15 @@ public class PlayerControls : MonoBehaviour
     public GameObject meleeAttack;
     bool gunReady = true;
     bool meleeReady = true;
+    public GameObject healthbar;
+    public float knockForce;
+    private float invincibilityTimer;
+    private bool invincible = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
@@ -40,6 +44,25 @@ public class PlayerControls : MonoBehaviour
             Melee();
         }
 
+        if (invincibilityTimer > 0)
+        {
+            invincibilityTimer -= Time.deltaTime;
+            if ((int)(invincibilityTimer *10) % 2 ==0)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+            if (invincibilityTimer <= 0)
+            {
+                invincibilityTimer = 0;
+                invincible = false;
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+
     }
 
     // Fire ranged attack
@@ -58,6 +81,21 @@ public class PlayerControls : MonoBehaviour
             meleeAttack.GetComponent<BoxCollider2D>().enabled = true;
             meleeAttack.GetComponent<SpriteRenderer>().enabled = false;
             meleeAttack.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && !invincible)
+        {
+            healthbar.GetComponent<Health>().Damage(1);
+            Vector2 knock = transform.position - collision.transform.position;
+            knock.Normalize();
+            rb.AddForce(knock * knockForce, ForceMode2D.Impulse);
+            //rb.velocity = (knock * knockForce);
+            invincible = true;
+            invincibilityTimer = 1f;
+            
         }
     }
 }
