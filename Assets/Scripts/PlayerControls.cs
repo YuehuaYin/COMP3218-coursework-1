@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody2D rb;
     public float speed;
     public float gunCooldown;
     public float meleeCooldown;
     public GameObject bulletPrefab;
-    public GameObject meleeAttack;
-    bool gunReady = true;
-    bool meleeReady = true;
+    public MeleeAttack meleeAttack;
+    private float gunTimer;
+    private float meleeTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody2D>();
+        gunTimer = gunCooldown;
+        meleeTimer = meleeCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // increase timers
+        gunTimer += Time.deltaTime;
+        meleeTimer += Time.deltaTime;
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
@@ -30,7 +36,6 @@ public class PlayerControls : MonoBehaviour
         // Left click to fire gun
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("fire");
             Fire();
         }
 
@@ -45,7 +50,9 @@ public class PlayerControls : MonoBehaviour
     // Fire ranged attack
     public void Fire()
     {
-        if (gunReady){
+        if (gunTimer >= gunCooldown){
+            Debug.Log("fire");
+            gunTimer = 0f;
             GameObject bullet = Instantiate(bulletPrefab, gameObject.transform);
         }
     }
@@ -53,11 +60,10 @@ public class PlayerControls : MonoBehaviour
     // Melee attack
     public void Melee()
     {
-        if (meleeReady) {
-            meleeAttack.GetComponent<SpriteRenderer>().enabled = true;
-            meleeAttack.GetComponent<BoxCollider2D>().enabled = true;
-            meleeAttack.GetComponent<SpriteRenderer>().enabled = false;
-            meleeAttack.GetComponent<BoxCollider2D>().enabled = false;
+        if (meleeTimer >= meleeCooldown) {
+            Debug.Log("melee");
+            meleeTimer = 0f;
+            meleeAttack.attack();
         }
     }
 }
