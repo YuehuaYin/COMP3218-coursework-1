@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    private Vector3 mouse;
+    private Vector2 move;
     public float speed;
     void Start()
     {
-        mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mouse - transform.position;
+        direction.z = 0;
+        move = Vector2.ClampMagnitude(direction, speed);
+        Debug.Log(move);
     }
 
     void Update() 
     {
-        Debug.Log(mouse.normalized.x);
-// gameObject.velocity = new Vector2(x*speed, y*speed);
+        transform.Translate(move);
+        //check for collisions
     }
 }
