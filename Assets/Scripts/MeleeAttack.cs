@@ -27,7 +27,7 @@ public class MeleeAttack : MonoBehaviour
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = mouse - transform.position;
             direction.z = 0;
-            transform.position = (Vector2)(parent.transform.position + (direction.normalized * 1.5f));
+            transform.position = (Vector2)(parent.transform.position + (direction.normalized * 1f));
         }
         else
         {

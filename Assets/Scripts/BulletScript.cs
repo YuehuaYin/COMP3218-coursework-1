@@ -18,6 +18,11 @@ public class BulletScript : MonoBehaviour
     void Update() 
     {
         transform.Translate(move);
-        //check for collisions
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+    }
+
 }
