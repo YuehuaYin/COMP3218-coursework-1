@@ -12,6 +12,11 @@ public class PlayerControls : MonoBehaviour
     public MeleeAttack meleeAttack;
     private float gunTimer;
     private float meleeTimer;
+    public GameObject healthbar;
+    public float knockForce;
+    private float invincibilityTimer;
+    private bool invincible = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,25 @@ public class PlayerControls : MonoBehaviour
             Melee();
         }
 
+        if (invincibilityTimer > 0)
+        {
+            invincibilityTimer -= Time.deltaTime;
+            if ((int)(invincibilityTimer *10) % 2 ==0)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+            if (invincibilityTimer <= 0)
+            {
+                invincibilityTimer = 0;
+                invincible = false;
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+
     }
 
     // Fire ranged attack
@@ -64,6 +88,21 @@ public class PlayerControls : MonoBehaviour
             Debug.Log("melee");
             meleeTimer = 0f;
             meleeAttack.attack();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && !invincible)
+        {
+            healthbar.GetComponent<Health>().Damage(1);
+            Vector2 knock = transform.position - collision.transform.position;
+            knock.Normalize();
+            rb.AddForce(knock * knockForce, ForceMode2D.Impulse);
+            //rb.velocity = (knock * knockForce);
+            invincible = true;
+            invincibilityTimer = 1f;
+            
         }
     }
 }
