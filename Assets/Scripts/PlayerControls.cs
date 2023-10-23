@@ -16,12 +16,14 @@ public class PlayerControls : MonoBehaviour
     public float knockForce;
     private float invincibilityTimer;
     private bool invincible = false;
+    private SceneSwitcher sceneSwitcher;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sceneSwitcher = GetComponent<SceneSwitcher>();
         gunTimer = gunCooldown;
         meleeTimer = meleeCooldown;
     }
@@ -104,7 +106,15 @@ public class PlayerControls : MonoBehaviour
             invincibilityTimer = 1f;
 
         }
-        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("Goal"))
+        {
+            sceneSwitcher.nextScene();
+        }
+    } 
 
 }
