@@ -161,7 +161,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5789991513216921990, guid: 3d0f9af9e4f1b57419b207069a88a7f3, type: 3}
   meleeAttack: {fileID: 1904195358}
   healthbar: {fileID: 1671132062}
-  knockForce: 5000
+  knockForce: 1
+  dashSpeed: 2
 --- !u!212 &83371235
 SpriteRenderer:
   m_ObjectHideFlags: 0
