@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class PlayerControls : MonoBehaviour
     public float knockForce;
     private float invincibilityTimer;
     private bool invincible = false;
+    public float dashSpeed;
+    private float dashTimer = 0;
     private SceneSwitcher sceneSwitcher;
 
 
@@ -39,6 +43,26 @@ public class PlayerControls : MonoBehaviour
         float y = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector2(x*speed, y*speed);
+       
+
+        //new movement to allow for knockback and dash?
+        /*
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += Vector3.up * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += Vector3.down * speed * Time.deltaTime;
+        }*/
 
         // Left click to fire gun
         if (Input.GetMouseButtonDown(0))
@@ -69,6 +93,45 @@ public class PlayerControls : MonoBehaviour
                 invincible = false;
                 GetComponent<SpriteRenderer>().enabled = true;
             }
+        }
+
+        if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
+        {
+            //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Vector3 direction = mouse - transform.position;
+
+            Vector2 direction = rb.velocity;
+            
+            direction.Normalize();
+            //rb.velocity = direction * dashSpeed;
+            int mask = 1 << 9;
+            RaycastHit2D wallDetect = Physics2D.Raycast(rb.position, direction, dashSpeed, mask);
+            float rayMagnitude = 1;
+            /*while (wallDetect.collider != null && rayMagnitude > 0.1)
+            {
+                rayMagnitude *= 0.9f;
+                wallDetect = Physics2D.Raycast(rb.position, direction, dashSpeed * rayMagnitude, 9);
+            }*/
+            if (wallDetect.collider == null)
+            {
+                transform.position += new Vector3(direction.x * dashSpeed * rayMagnitude, direction.y * dashSpeed *rayMagnitude, 0);
+            }
+            else
+            {
+                Debug.Log("Ray hit at" +  wallDetect.point);
+                transform.position = wallDetect.point;
+            }
+
+           // rb.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
+            
+            dashTimer = 2f;
+            Debug.Log("Dash");
+
+        }
+        else if (dashTimer > 0)
+        {
+            dashTimer -= Time.deltaTime;
+           
         }
 
     }
