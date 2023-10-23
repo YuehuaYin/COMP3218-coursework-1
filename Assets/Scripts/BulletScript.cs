@@ -11,7 +11,8 @@ public class BulletScript : MonoBehaviour
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mouse - transform.position;
         direction.z = 0;
-        move = Vector2.ClampMagnitude(direction, speed);
+        direction.Normalize();
+        move = direction * speed;
         Debug.Log(move);
     }
 
@@ -22,6 +23,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         Destroy(this.gameObject);
     }
 

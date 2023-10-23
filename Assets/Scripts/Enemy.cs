@@ -32,9 +32,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   /* private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        /*if (collision.gameObject.CompareTag("Bullet"))
         {
             healthbar.GetComponent<Health>().Damage(1);
         }
@@ -42,8 +42,10 @@ public class Enemy : MonoBehaviour
         {
             healthbar.GetComponent<Health>().Damage(2);
         }
-    }  
-    /*
+        
+        Debug.Log("Enemy hit by bullet");
+    }  */
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -56,7 +58,7 @@ public class Enemy : MonoBehaviour
             healthbar.GetComponent<Health>().Damage(2);
         }
         
-    } */
+    } 
 
     public void Aggro()
     {

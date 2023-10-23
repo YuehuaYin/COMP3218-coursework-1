@@ -90,10 +90,10 @@ public class PlayerControls : MonoBehaviour
             meleeAttack.attack();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy") && !invincible)
+        
+       if (collision.gameObject.CompareTag("Enemy") && !invincible)
         {
             healthbar.GetComponent<Health>().Damage(1);
             Vector2 knock = transform.position - collision.transform.position;
@@ -102,7 +102,9 @@ public class PlayerControls : MonoBehaviour
             //rb.velocity = (knock * knockForce);
             invincible = true;
             invincibilityTimer = 1f;
-            
+
         }
+        
     }
+
 }
