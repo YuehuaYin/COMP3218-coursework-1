@@ -11,20 +11,24 @@ public class SpikeScript : MonoBehaviour
     {
         if (isActivated){
             GetComponent<SpriteRenderer>().sprite = spr1;
+            GetComponent<BoxCollider2D>().enabled = true;
         } else {
             GetComponent<SpriteRenderer>().sprite = spr2;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Obstacle is turned on
     void activate()
     {
-
+        if (!isActivated){
+            GetComponent<SpriteRenderer>().sprite = spr1;
+            GetComponent<BoxCollider2D>().enabled = true;
+            isActivated = true;
+        } else {
+            GetComponent<SpriteRenderer>().sprite = spr2;
+            GetComponent<BoxCollider2D>().enabled = false;
+            isActivated = false;
+        }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1304578207326236161}
   - component: {fileID: 2755060064683933603}
   - component: {fileID: 7985028844410891216}
+  - component: {fileID: 440862178824929421}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Hazard
@@ -130,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.91969967, y: 0.909662}
   m_EdgeRadius: 0
+--- !u!114 &440862178824929421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388090086706937177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a8ab1189cae2f4fa4f34239236e4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr1: {fileID: -6404648669078617216, guid: 96b78cad7bb6ddf4096fc152168d88c0, type: 3}
+  spr2: {fileID: -9050845263534901580, guid: 96b78cad7bb6ddf4096fc152168d88c0, type: 3}
+  isActivated: 0
