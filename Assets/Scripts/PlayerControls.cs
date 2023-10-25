@@ -133,6 +133,10 @@ public class PlayerControls : MonoBehaviour
            
         }
 
+        if (Input.GetKey(KeyCode.R)){
+            sceneSwitcher.restartScene();
+        }
+
     }
 
     // Fire ranged attack
@@ -171,8 +175,7 @@ public class PlayerControls : MonoBehaviour
             invincibilityTimer = 1f;
             */
 
-            Destroy(this.gameObject);
-
+            sceneSwitcher.restartScene();
         }
     }
 

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7415119515468072836}
+  sp: {fileID: 0}
 --- !u!58 &7973998289607864536
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -257,7 +258,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -331,6 +332,7 @@ MonoBehaviour:
   rb: {fileID: 8706027541220250255}
   hp: 0
   healthbar: {fileID: 3747771173438514405}
+  sight: {fileID: 0}
 --- !u!50 &8706027541220250255
 Rigidbody2D:
   serializedVersion: 4
