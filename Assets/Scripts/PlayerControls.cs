@@ -141,7 +141,9 @@ public class PlayerControls : MonoBehaviour
         if (gunTimer >= gunCooldown){
             Debug.Log("fire");
             gunTimer = 0f;
-            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform);
+            
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            
         }
     }
 
