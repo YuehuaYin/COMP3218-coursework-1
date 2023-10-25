@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public float hp = 10;
     public GameObject healthbar;
+    public GameObject sight;
     
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,10 @@ public class Enemy : MonoBehaviour
             
             direct.Normalize();
             rb.velocity = direct * speed;
-            
+           // sight.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
+
+
     }
 
    /* private void OnCollisionEnter2D(Collision2D collision)

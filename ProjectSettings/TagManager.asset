@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Enemy Sight
+    uniqueID: 2556866831
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
