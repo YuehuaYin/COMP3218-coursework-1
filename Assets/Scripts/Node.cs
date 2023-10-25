@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Time to stop for after reaching node
+    public float pauseTime = 0;
+    // Lever to activate after pause
+    public LeverScript mechanic;
 
     // Update is called once per frame
-    void Update()
+    public void activate()
     {
-        
+        if (mechanic == null){
+            return;
+        } else {
+            mechanic.activate();
+        }
     }
 }

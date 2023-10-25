@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LeverScript : MonoBehaviour
 {
+    private List<GameObject> listOfChildren;
+    public UnityEvent leverActivated = new UnityEvent();
     // Start is called before the first frame update
+    void Start()
+    {
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.layer == 3) //collision is from an attack
+        if (collision.CompareTag("Melee")) //collision is from an attack
         {
-            // trigger functions in child objects
+            Debug.Log("lever hit");
+            activate();
         }
     } 
+
+    public void activate(){
+        leverActivated.Invoke();
+    }
 }

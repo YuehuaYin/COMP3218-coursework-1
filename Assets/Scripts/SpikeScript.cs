@@ -6,9 +6,19 @@ public class SpikeScript : MonoBehaviour
 {
     public Sprite spr1, spr2;
     public bool isActivated;
+    public LeverScript lever1;
+    public LeverScript lever2;
     // Start is called before the first frame update
     void Start()
     {
+        // add activate function to lever's list of functions
+        if (lever1 != null) {
+            lever1.leverActivated.AddListener(activate);
+        }
+        if (lever2 != null) {
+            lever2.leverActivated.AddListener(activate);
+        }
+
         if (isActivated){
             GetComponent<SpriteRenderer>().sprite = spr1;
             GetComponent<BoxCollider2D>().enabled = true;
@@ -19,7 +29,7 @@ public class SpikeScript : MonoBehaviour
     }
 
     // Obstacle is turned on
-    void activate()
+    public void activate()
     {
         if (!isActivated){
             GetComponent<SpriteRenderer>().sprite = spr1;

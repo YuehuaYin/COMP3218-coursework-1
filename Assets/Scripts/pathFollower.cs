@@ -9,6 +9,7 @@ public class pathFollower : MonoBehaviour
     public GameObject follower;
     public float speed;
     float Timer;
+    float PauseTimer;
     static Vector3 CurrentPosition;
     Vector2 startPosition;
     int currentNode;
@@ -20,6 +21,7 @@ public class pathFollower : MonoBehaviour
 
     void CheckNode(){
         Timer = 0;
+        PauseTimer = 0;
         CurrentPosition = PathNode[currentNode].transform.position;
         startPosition = follower.transform.position;
     }
@@ -32,9 +34,13 @@ public class pathFollower : MonoBehaviour
             follower.transform.position = Vector3.Lerp(startPosition, CurrentPosition, Timer);
         }
         else {
-            if (currentNode < PathNode.Length - 1){
-                currentNode++;
-                CheckNode();
+            PauseTimer += Time.deltaTime;
+            if (PauseTimer > PathNode[currentNode].pauseTime){
+                PathNode[currentNode].activate();
+                if (currentNode < PathNode.Length - 1){
+                    currentNode++;
+                    CheckNode();
+                }
             }
         }
     }
