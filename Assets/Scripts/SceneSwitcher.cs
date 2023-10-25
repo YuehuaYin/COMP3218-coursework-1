@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void getNextScene(){
-        Debug.Log(SceneManager.GetActiveScene().name);
-    }
-
     public void nextScene(){
-        getNextScene();        
+        switch (SceneManager.GetActiveScene().name) 
+        {
+        case "01":
+            SceneManager.LoadScene("02");
+            break;
+        }
     }
 
     public void startButton()
     {
         SceneManager.LoadScene("01");
+    }
+
+    public void restartScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

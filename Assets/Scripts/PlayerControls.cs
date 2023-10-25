@@ -22,7 +22,6 @@ public class PlayerControls : MonoBehaviour
     private float dashTimer = 0;
     private SceneSwitcher sceneSwitcher;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -160,6 +159,7 @@ public class PlayerControls : MonoBehaviour
         
        if (collision.gameObject.CompareTag("Enemy") && !invincible)
         {
+            /*
             healthbar.GetComponent<Health>().Damage(1);
             Vector2 knock = transform.position - collision.transform.position;
             knock.Normalize();
@@ -167,6 +167,9 @@ public class PlayerControls : MonoBehaviour
             //rb.velocity = (knock * knockForce);
             invincible = true;
             invincibilityTimer = 1f;
+            */
+
+            Destroy(this.gameObject);
 
         }
     }
@@ -177,6 +180,10 @@ public class PlayerControls : MonoBehaviour
         if (collision.CompareTag("Goal"))
         {
             sceneSwitcher.nextScene();
+        }
+        if (collision.CompareTag("Hazard"))
+        {
+            sceneSwitcher.restartScene();
         }
     } 
 
