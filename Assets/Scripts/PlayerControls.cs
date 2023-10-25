@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class PlayerControls : MonoBehaviour
     public float dashSpeed;
     private float dashTimer = 0;
     private SceneSwitcher sceneSwitcher;
+    private TMPro.TextMeshProUGUI ammo;
+    public GameObject ammoTextObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        ammo = ammoTextObject.GetComponent<TMPro.TextMeshProUGUI>();
         rb = GetComponent<Rigidbody2D>();
         sceneSwitcher = GetComponent<SceneSwitcher>();
         gunTimer = gunCooldown;
@@ -138,12 +142,14 @@ public class PlayerControls : MonoBehaviour
     // Fire ranged attack
     public void Fire()
     {
-        if (gunTimer >= gunCooldown){
+        int ammoCount = int.Parse(ammo.text);
+        if (gunTimer >= gunCooldown && ammoCount > 0){
             Debug.Log("fire");
             gunTimer = 0f;
             
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            
+            ammoCount--;
+            ammo.text = ammoCount.ToString();
         }
     }
 
@@ -178,15 +184,25 @@ public class PlayerControls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.CompareTag("Goal"))
         {
             sceneSwitcher.nextScene();
         }
-        if (collision.CompareTag("Hazard"))
+        else if (collision.CompareTag("Hazard"))
         {
             sceneSwitcher.restartScene();
         }
+        else if (collision.CompareTag("AmmoPickup"))
+        {
+            int ammoCount = int.Parse(ammo.text);
+
+            ammoCount++;
+            ammo.text = ammoCount.ToString();
+            Destroy(collision.gameObject);
+        }
+            
+        
     } 
 
 }

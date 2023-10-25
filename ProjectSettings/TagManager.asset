@@ -9,6 +9,8 @@ TagManager:
   - Melee
   - Goal
   - Hazard
+  - AmmoPickup
+  - Box
   layers:
   - Default
   - TransparentFX

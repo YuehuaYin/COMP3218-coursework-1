@@ -12,8 +12,13 @@ public class pathFollower : MonoBehaviour
     static Vector3 CurrentPosition;
     Vector2 startPosition;
     int currentNode;
+    private float constSpeed = 0;
+    public bool loop;
+    private Rigidbody2D rb;
+
     void Start()
     {
+        rb = follower.GetComponent<Rigidbody2D>();
         PathNode = GetComponentsInChildren<Node>();
         CheckNode();
     }
@@ -22,13 +27,42 @@ public class pathFollower : MonoBehaviour
         Timer = 0;
         CurrentPosition = PathNode[currentNode].transform.position;
         startPosition = follower.transform.position;
+        Vector3 start = new Vector3(startPosition.x, startPosition.y, 0);
+        Vector3 distance = CurrentPosition - start;
+        distance.Normalize();
+       // constSpeed =  speed /distance.magnitude;
+        //speed = dist/time
+        //time = dist/speed
+        
+        rb.velocity = distance * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime * speed;
+        if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
+        {
+            if (currentNode < PathNode.Length - 1)
+            {
+                currentNode++;
+                CheckNode();
+            }
+            else if (loop)
+            {
+                currentNode = 0;
+                CheckNode();
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
+        } 
+        
+
+
+        /*Timer += Time.deltaTime * constSpeed;
         if (follower.transform.position != CurrentPosition){
+            
             follower.transform.position = Vector3.Lerp(startPosition, CurrentPosition, Timer);
         }
         else {
@@ -36,6 +70,8 @@ public class pathFollower : MonoBehaviour
                 currentNode++;
                 CheckNode();
             }
-        }
+        } */
+
+
     }
 }
