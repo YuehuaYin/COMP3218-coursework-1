@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private bool aggro = false;
     public float speed;
     public Rigidbody2D rb;
-    public float hp = 10;
+    public float hp = 1;
     public GameObject healthbar;
     public GameObject sight;
     
@@ -56,9 +56,9 @@ public class Enemy : MonoBehaviour
         {
             healthbar.GetComponent<Health>().Damage(1);
         }
-        else if (collision.CompareTag("Melee"))
+        else if (collision.CompareTag("Hazard"))
         {
-            healthbar.GetComponent<Health>().Damage(2);
+            healthbar.GetComponent<Health>().Damage(1);
         }
         
     } 

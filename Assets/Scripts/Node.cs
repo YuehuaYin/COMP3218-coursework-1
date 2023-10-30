@@ -8,14 +8,17 @@ public class Node : MonoBehaviour
     public float pauseTime = 0;
     // Lever to activate after pause
     public LeverScript mechanic;
+    public ThiefShoot thiefShoot;
 
     // Update is called once per frame
     public void activate()
     {
-        if (mechanic == null){
-            return;
-        } else {
+        if (mechanic != null){
             mechanic.activate();
+            Debug.Log("lever activated");
+        }
+        if (thiefShoot != null){
+            thiefShoot.shoot();
         }
     }
 }
