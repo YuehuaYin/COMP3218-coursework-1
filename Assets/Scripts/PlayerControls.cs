@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using TMPro;
+using Minifantasy.Dungeon;
+using Unity.VisualScripting;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -24,29 +26,72 @@ public class PlayerControls : MonoBehaviour
     private SceneSwitcher sceneSwitcher;
     private TMPro.TextMeshProUGUI ammo;
     public GameObject ammoTextObject;
+    public GameObject characterContainer;
+    private DUN_AnimatedCharacterSelection animator;
+    private bool alive = true;
+    private string animMode = "Idle";
+    private float deathTimer = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        ammo = ammoTextObject.GetComponent<TMPro.TextMeshProUGUI>();
+        
         rb = GetComponent<Rigidbody2D>();
         sceneSwitcher = GetComponent<SceneSwitcher>();
         gunTimer = gunCooldown;
         meleeTimer = meleeCooldown;
+        ammo = ammoTextObject.GetComponent<TMPro.TextMeshProUGUI>();
+        animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
+        {
+            animator.TurnOffCurrentParameter();
+            animator.ToggleAnimation("Walk");
+            animMode = "Walk";
+            Debug.Log("Walk started");
+            Debug.Log("Velocity: " + rb.velocity);
+        }
+        else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
+        {
+            animator.TurnOffCurrentParameter();
+            animator.ToggleAnimation("Idle");
+            animMode = "Idle";
+
+            Debug.Log("Idle started");
+            Debug.Log("Velocity: " + rb.velocity);
+        }
+
+        if (rb.velocity.x > 0)
+        {
+            animator.ToggleXDirection(1);
+        } else if (rb.velocity.x < 0)
+        {
+            animator.ToggleXDirection(-1);
+
+        } 
+        if (rb.velocity.y > 0)
+        {
+            animator.ToggleYDirection(1);
+        } else if (rb.velocity.y < 0) {
+            animator.ToggleYDirection(-1);
+        }
+
         // increase timers
         gunTimer += Time.deltaTime;
         meleeTimer += Time.deltaTime;
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-
-        rb.velocity = new Vector2(x*speed, y*speed);
-       
+        if (alive)
+        {
+            rb.velocity = new Vector2(x * speed, y * speed);
+        }
 
         //new movement to allow for knockback and dash?
         /*
@@ -140,7 +185,14 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKey(KeyCode.R)){
             sceneSwitcher.restartScene();
         }
-
+        if (deathTimer > 0)
+        {
+            deathTimer -= Time.deltaTime;
+            if (deathTimer <=0)
+            {
+                sceneSwitcher.restartScene();
+            }
+        }
     }
 
     // Fire ranged attack
@@ -181,7 +233,7 @@ public class PlayerControls : MonoBehaviour
             invincibilityTimer = 1f;
             */
 
-            sceneSwitcher.restartScene();
+            death();
         }
     }
 
@@ -194,7 +246,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (collision.CompareTag("Hazard"))
         {
-            sceneSwitcher.restartScene();
+            death();
         }
         else if (collision.CompareTag("AmmoPickup"))
         {
@@ -207,5 +259,15 @@ public class PlayerControls : MonoBehaviour
             
         
     } 
+
+    private void death()
+    {
+        alive = false;
+        animator.TurnOffCurrentParameter();
+        animator.ToggleAnimation("Die");
+        deathTimer = 1.5f;
+        rb.velocity = Vector2.zero;
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
 
 }
