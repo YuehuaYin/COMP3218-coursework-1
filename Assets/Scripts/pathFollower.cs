@@ -10,7 +10,7 @@ public class pathFollower : MonoBehaviour
     public float speed;
     float Timer;
     float PauseTimer;
-    static Vector3 CurrentPosition;
+    private Vector3 CurrentPosition;
     Vector2 startPosition;
     int currentNode;
     private float constSpeed = 0;
@@ -70,7 +70,7 @@ public class pathFollower : MonoBehaviour
                     CheckNode();
                 }
             }
-        } else
+        } else if (gameObject.CompareTag("Player"))
         {
             rb.velocity = currentSpeed;
         }

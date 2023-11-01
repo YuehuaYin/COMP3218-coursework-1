@@ -17,14 +17,18 @@ public class Enemy : MonoBehaviour
     public GameObject characterContainer;
     private DUN_AnimatedCharacterSelection animator;
     private bool alive = true;
-    private string animMode = "Idle";
+    private string animMode;
     private float deathTimer = 0;
     private float aggroTimer = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
+        animator.TurnOffCurrentParameter();
+        animator.ToggleAnimation("Idle");
+        animMode = "Idle";
         player = GameObject.Find("Player");
         Quaternion direction = sight.transform.rotation;
         Debug.Log(direction);
@@ -61,23 +65,29 @@ public class Enemy : MonoBehaviour
             }
            // sight.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
-
-        if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
+        try
         {
-            animator.TurnOffCurrentParameter();
-            animator.ToggleAnimation("Walk");
-            animMode = "Walk";
-            Debug.Log("Walk started");
-            Debug.Log("Velocity: " + rb.velocity);
-        }
-        else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
-        {
-            animator.TurnOffCurrentParameter();
-            animator.ToggleAnimation("Idle");
-            animMode = "Idle";
+            if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
+            {
 
-            Debug.Log("Idle started");
-            Debug.Log("Velocity: " + rb.velocity);
+                animator.TurnOffCurrentParameter();
+                animator.ToggleAnimation("Walk");
+                animMode = "Walk";
+                Debug.Log("Walk started");
+                Debug.Log("Velocity: " + rb.velocity);
+            }
+            else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
+            {
+                animator.TurnOffCurrentParameter();
+                animator.ToggleAnimation("Idle");
+                animMode = "Idle";
+
+                Debug.Log("Idle started");
+                Debug.Log("Velocity: " + rb.velocity);
+            }
+        } catch(Exception e)
+        {
+            Debug.LogException(e);
         }
 
         if (rb.velocity.x > 0)
