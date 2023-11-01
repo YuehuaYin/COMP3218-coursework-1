@@ -11,6 +11,7 @@ TagManager:
   - Hazard
   - AmmoPickup
   - Box
+  - HigherFloor
   layers:
   - Default
   - TransparentFX
@@ -45,9 +46,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 2112893095
+    locked: 0
   - name: Enemy Sight
     uniqueID: 2556866831
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1218582815
     locked: 0

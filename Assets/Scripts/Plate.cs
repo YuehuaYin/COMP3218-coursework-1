@@ -19,25 +19,27 @@ public class Plate : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Something on the pressure plate");
-        if (collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Box") || collision.CompareTag("Player"))
         {
             collisions++;
-            for(int i = 0; i < walls.Length; i++)
+            for (int i = 0; i < walls.Length; i++)
             {
                 walls[i].SetActive(false);
             }
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Box") || collision.CompareTag("Player"))
         {
             collisions--;
-            if (collisions == 0)
+            if (collisions <= 0)
             {
+                collisions = 0;
                 for (int i = 0; i < walls.Length; i++)
                 {
                     walls[i].SetActive(true);
@@ -45,4 +47,5 @@ public class Plate : MonoBehaviour
             }
         }
     }
+
 }
