@@ -272,7 +272,7 @@ public class PlayerControls : MonoBehaviour
         alive = false;
         animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
-        deathTimer = 1.5f;
+        deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
     }

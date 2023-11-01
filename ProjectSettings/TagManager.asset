@@ -25,7 +25,7 @@ TagManager:
   - Mechanics
   - Wall
   - Floor
-  - 
+  - HigherFloor
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1218582815
+    locked: 0
+  - name: Above Player
+    uniqueID: 3517013583
     locked: 0

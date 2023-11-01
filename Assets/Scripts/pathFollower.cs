@@ -10,13 +10,14 @@ public class pathFollower : MonoBehaviour
     public float speed;
     float Timer;
     float PauseTimer;
-    static Vector3 CurrentPosition;
+    private Vector3 CurrentPosition;
     Vector2 startPosition;
     int currentNode;
     private float constSpeed = 0;
     public bool loop;
     private Rigidbody2D rb;
     private bool activated = false;
+    private Vector2 currentSpeed;
 
     void Start()
     {
@@ -39,11 +40,15 @@ public class pathFollower : MonoBehaviour
         //time = dist/speed
         
         rb.velocity = distance * speed;
+        currentSpeed = distance * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
             Debug.Log("node reached");
@@ -65,7 +70,10 @@ public class pathFollower : MonoBehaviour
                     CheckNode();
                 }
             }
-        } 
+        } else if (gameObject.CompareTag("Player"))
+        {
+            rb.velocity = currentSpeed;
+        }
         
 
 
