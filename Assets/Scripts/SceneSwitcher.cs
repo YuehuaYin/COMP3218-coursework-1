@@ -14,19 +14,22 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("03");
             break;
         case "03":
-            SceneManager.LoadScene("03-1");
+            SceneManager.LoadScene("03.1");
             break;
-        case "03-1":
+        case "03.1":
             SceneManager.LoadScene("04");
             break;
         case "04":
+            SceneManager.LoadScene("04.1");
+            break;
+        case "04.1":
             SceneManager.LoadScene("05");
             break;
         case "05":
-            SceneManager.LoadScene("05-1");
-            break;
-        case "05-1":
             SceneManager.LoadScene("06");
+            break;
+        case "06":
+            SceneManager.LoadScene("07");
             break;
         }
     }

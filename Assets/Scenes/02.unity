@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -318,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -400,6 +408,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -677,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -747,7 +763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295096507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spike1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,6 +957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -1018,6 +1038,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -1277,6 +1301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -1345,6 +1373,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -1549,6 +1581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -1617,6 +1653,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -1695,6 +1735,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -1848,6 +1892,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -2201,6 +2249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -2282,7 +2334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174628889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3285,6 +3337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -3357,6 +3413,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -3431,6 +3491,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -3670,6 +3734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -3820,6 +3888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -3938,6 +4010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -4010,6 +4086,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
@@ -4290,6 +4370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever
       value: 
@@ -4358,6 +4442,10 @@ PrefabInstance:
     - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: m_Name
       value: Spike (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 388090086706937177, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 440862178824929421, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
       propertyPath: lever

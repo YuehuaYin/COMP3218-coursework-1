@@ -2351,9 +2351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd60059779999946845f0fbc198da04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.2
   enemy: {fileID: 1014195970}
-  bulletPrefab: {fileID: 5789991513216921990, guid: d9e6bb57b1694654489c7bc25f706440, type: 3}
+  bulletPrefab: {fileID: 5789991513216921990, guid: 75f7e8ce915ff9546b4c0ce28df8e8a6, type: 3}
 --- !u!4 &1228295898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6850885309532951485, guid: be9000c174f30614298c6fa88d76607f, type: 3}
