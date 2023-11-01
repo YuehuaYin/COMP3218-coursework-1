@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     private Vector2 move;
     public float speed;
+    
     void Start()
     {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -19,6 +20,7 @@ public class BulletScript : MonoBehaviour
     void Update() 
     {
         transform.Translate(move);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

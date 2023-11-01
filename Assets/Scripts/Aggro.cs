@@ -16,11 +16,12 @@ public class Aggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector2 dir = enemy.GetComponent<Rigidbody2D>().velocity;
         if (dir != Vector2.zero)
         {
             dir.Normalize();
-            
+            /*
             float dir2 = 90 - Vector3.Angle(new Vector3(0.0f, 1.0f, 0.0f), new Vector3(dir.x, dir.y, 0.0f));
             if (dir.x < 0.0f)
             {
@@ -28,8 +29,11 @@ public class Aggro : MonoBehaviour
                 
             }
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, dir2));
+            */
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
             //transform.RotateAround(enemy.transform.position, dir2);
-            
+
         }
     }
 
