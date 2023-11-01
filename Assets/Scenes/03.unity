@@ -1152,6 +1152,10 @@ PrefabInstance:
       propertyPath: ammoTextObject
       value: 
       objectReference: {fileID: 1058052843}
+    - target: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+      propertyPath: deathTextObject
+      value: 
+      objectReference: {fileID: 79269965}
     - target: {fileID: 7770140489970102080, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
       propertyPath: m_SortingOrder
       value: 9
@@ -1252,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   mechanic: {fileID: 0}
+  thiefShoot: {fileID: 0}
 --- !u!212 &587350055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1732,6 +1737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   mechanic: {fileID: 0}
+  thiefShoot: {fileID: 0}
 --- !u!212 &860630032
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2212,6 +2218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   mechanic: {fileID: 0}
+  thiefShoot: {fileID: 0}
 --- !u!212 &1009492608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3863,6 +3870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   mechanic: {fileID: 0}
+  thiefShoot: {fileID: 0}
 --- !u!212 &1593939825
 SpriteRenderer:
   m_ObjectHideFlags: 0
