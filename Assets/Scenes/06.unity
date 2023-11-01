@@ -666,6 +666,10 @@ PrefabInstance:
       propertyPath: ammoTextObject
       value: 
       objectReference: {fileID: 1282260712}
+    - target: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+      propertyPath: deathTextObject
+      value: 
+      objectReference: {fileID: 240912142}
     - target: {fileID: 6054464812905708071, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 2048
@@ -943,7 +947,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
   m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

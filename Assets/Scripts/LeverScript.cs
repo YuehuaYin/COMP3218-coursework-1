@@ -20,6 +20,12 @@ public class LeverScript : MonoBehaviour
             Debug.Log("lever hit");
             activate();
         }
+
+        if (collision.CompareTag("Bullet")) //collision is from a bullet - not working????/
+        {
+            Debug.Log("lever hit");
+            activate();
+        }
     } 
 
     public void activate(){

@@ -51,14 +51,14 @@ public class pathFollower : MonoBehaviour
 
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
+            Debug.Log("node reached");
             rb.velocity = Vector2.zero;
             if (!activated) {
-                Debug.Log("activate mechanic");
                 PathNode[currentNode].activate();
                 activated = true;
             }
             PauseTimer += Time.deltaTime;
-            if (PauseTimer > PathNode[currentNode].pauseTime){
+            if (PauseTimer >= PathNode[currentNode].pauseTime){
                 if (currentNode < PathNode.Length - 1)
                 {
                     currentNode++;

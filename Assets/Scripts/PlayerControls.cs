@@ -25,7 +25,9 @@ public class PlayerControls : MonoBehaviour
     private float dashTimer = 0;
     private SceneSwitcher sceneSwitcher;
     private TMPro.TextMeshProUGUI ammo;
+    private TMPro.TextMeshProUGUI deathText;
     public GameObject ammoTextObject;
+    public GameObject deathTextObject;
     public GameObject characterContainer;
     private DUN_AnimatedCharacterSelection animator;
     private bool alive = true;
@@ -42,6 +44,8 @@ public class PlayerControls : MonoBehaviour
         gunTimer = gunCooldown;
         meleeTimer = meleeCooldown;
         ammo = ammoTextObject.GetComponent<TMPro.TextMeshProUGUI>();
+        deathText = deathTextObject.GetComponent<TMPro.TextMeshProUGUI>();
+        deathText.text = DeathCounter.deaths.ToString();
         animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
 
     }
@@ -183,13 +187,16 @@ public class PlayerControls : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.R)){
-            sceneSwitcher.restartScene();
+            death();
         }
+
         if (deathTimer > 0)
         {
             deathTimer -= Time.deltaTime;
             if (deathTimer <=0)
-            {
+            {           
+                DeathCounter.deaths+=1;
+                deathText.text = DeathCounter.deaths.ToString();
                 sceneSwitcher.restartScene();
             }
         }
