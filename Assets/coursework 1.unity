@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e942635115dbb594ca487e2ddcd2abbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follower: {fileID: 0}
+  follower: {fileID: 776997245}
   speed: 2
   loop: 1
 --- !u!4 &87801346
@@ -898,6 +898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22e1e0c056af5940998f672c0066c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseTime: 0
+  mechanic: {fileID: 0}
 --- !u!212 &432843577
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1108,6 +1110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22e1e0c056af5940998f672c0066c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseTime: 0
+  mechanic: {fileID: 0}
 --- !u!212 &775174663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1160,6 +1164,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &776997245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7415119515468072836, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+  m_PrefabInstance: {fileID: 981536477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &859294998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22e1e0c056af5940998f672c0066c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseTime: 0
+  mechanic: {fileID: 0}
 --- !u!212 &948216838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1577,6 +1588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22e1e0c056af5940998f672c0066c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseTime: 0
+  mechanic: {fileID: 0}
 --- !u!212 &1612172738
 SpriteRenderer:
   m_ObjectHideFlags: 0

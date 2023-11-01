@@ -16,6 +16,7 @@ public class pathFollower : MonoBehaviour
     private float constSpeed = 0;
     public bool loop;
     private Rigidbody2D rb;
+    private bool activated = false;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class pathFollower : MonoBehaviour
     void CheckNode(){
         Timer = 0;
         PauseTimer = 0;
+        activated = false;
         CurrentPosition = PathNode[currentNode].transform.position;
         startPosition = follower.transform.position;
         Vector3 start = new Vector3(startPosition.x, startPosition.y, 0);
@@ -44,19 +46,24 @@ public class pathFollower : MonoBehaviour
     {
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
-            if (currentNode < PathNode.Length - 1)
-            {
-                currentNode++;
-                CheckNode();
+            rb.velocity = Vector2.zero;
+            if (!activated) {
+                Debug.Log("activate mechanic");
+                PathNode[currentNode].activate();
+                activated = true;
             }
-            else if (loop)
-            {
-                currentNode = 0;
-                CheckNode();
-            }
-            else
-            {
-                rb.velocity = Vector2.zero;
+            PauseTimer += Time.deltaTime;
+            if (PauseTimer > PathNode[currentNode].pauseTime){
+                if (currentNode < PathNode.Length - 1)
+                {
+                    currentNode++;
+                    CheckNode();
+                }
+                else if (loop)
+                {
+                    currentNode = 0;
+                    CheckNode();
+                }
             }
         } 
         
