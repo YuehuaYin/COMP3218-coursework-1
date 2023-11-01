@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private bool alive = true;
     private string animMode = "Idle";
     private float deathTimer = 0;
+    private float aggroTimer = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +27,12 @@ public class Enemy : MonoBehaviour
         animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
         player = GameObject.Find("Player");
         Quaternion direction = sight.transform.rotation;
-        Debug.Log(direction.z);
+        Debug.Log(direction);
+        
         if (direction.z <= -0.5 || direction.z >= 0.8)
         {
             animator.ToggleXDirection(-1);
-        } else if (direction.z > 0.65 && direction.z < 0.8)
+        } else if (direction.z > 0.65 && direction.z < 0.8 && direction.w > 0)
         {
             Debug.Log("Facing up");
             animator.ToggleYDirection(1);
@@ -43,7 +45,10 @@ public class Enemy : MonoBehaviour
     {
         if (aggro)
         {
-            
+            if (aggroTimer < 10)
+            {
+                aggroTimer += Time.deltaTime;
+            }
             Vector2 direct = player.transform.position - transform.position;
             if (direct.magnitude < 0.1)
             {
@@ -52,7 +57,7 @@ public class Enemy : MonoBehaviour
             else if (alive)
             {
                 direct.Normalize();
-                rb.velocity = direct * speed;
+                rb.velocity = direct * speed * aggroTimer * 0.5f;
             }
            // sight.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
@@ -141,7 +146,7 @@ public class Enemy : MonoBehaviour
         alive = false;
         animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
-        deathTimer = 1.5f;
+        deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
         Destroy(sight);

@@ -17,6 +17,7 @@ public class pathFollower : MonoBehaviour
     public bool loop;
     private Rigidbody2D rb;
     private bool activated = false;
+    private Vector2 currentSpeed;
 
     void Start()
     {
@@ -39,11 +40,15 @@ public class pathFollower : MonoBehaviour
         //time = dist/speed
         
         rb.velocity = distance * speed;
+        currentSpeed = distance * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
             rb.velocity = Vector2.zero;
@@ -65,7 +70,10 @@ public class pathFollower : MonoBehaviour
                     CheckNode();
                 }
             }
-        } 
+        } else
+        {
+            rb.velocity = currentSpeed;
+        }
         
 
 

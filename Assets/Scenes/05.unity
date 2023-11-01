@@ -583,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4156318490973377401, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4156318490973377401, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2260,9 +2260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd60059779999946845f0fbc198da04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.3
   enemy: {fileID: 1014195970}
-  bulletPrefab: {fileID: 5789991513216921990, guid: d9e6bb57b1694654489c7bc25f706440, type: 3}
+  bulletPrefab: {fileID: 5789991513216921990, guid: 75f7e8ce915ff9546b4c0ce28df8e8a6, type: 3}
 --- !u!1 &1256963712
 GameObject:
   m_ObjectHideFlags: 0
