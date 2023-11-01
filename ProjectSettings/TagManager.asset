@@ -12,6 +12,7 @@ TagManager:
   - AmmoPickup
   - Box
   - HigherFloor
+  - DeathCounter
   layers:
   - Default
   - TransparentFX

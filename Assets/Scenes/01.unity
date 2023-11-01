@@ -3956,7 +3956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4089,7 +4089,16 @@ PrefabInstance:
       propertyPath: ammoTextObject
       value: 
       objectReference: {fileID: 1814038619}
-    m_RemovedComponents: []
+    - target: {fileID: 5611293221909746203, guid: d5a6aa2075924cc49b5cc4b77bdb7a67, type: 3}
+      propertyPath: deathTextObject
+      value: 
+      objectReference: {fileID: 2140441879}
+    - target: {fileID: 5611293221909746203, guid: d5a6aa2075924cc49b5cc4b77bdb7a67, type: 3}
+      propertyPath: deathsTextObject
+      value: 
+      objectReference: {fileID: 2140441879}
+    m_RemovedComponents:
+    - {fileID: 8594688231471759493, guid: d5a6aa2075924cc49b5cc4b77bdb7a67, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
