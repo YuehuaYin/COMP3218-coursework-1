@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private bool aggro = false;
     public float speed;
     public Rigidbody2D rb;
-    public float hp = 10;
+    public float hp = 1;
     public GameObject healthbar;
     public GameObject sight;
     public GameObject characterContainer;
@@ -121,9 +121,11 @@ public class Enemy : MonoBehaviour
         
         if (collision.CompareTag("Bullet"))
         {
-
             Death();
-            
+        }
+        else if (collision.CompareTag("Hazard"))
+        {
+            Death();
         }
         
         
