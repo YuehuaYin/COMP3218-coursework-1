@@ -1818,7 +1818,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thief
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 411658982036010936, guid: be9000c174f30614298c6fa88d76607f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6888215217817412337, guid: be9000c174f30614298c6fa88d76607f, type: 3}
     - {fileID: 5183342755755688404, guid: be9000c174f30614298c6fa88d76607f, type: 3}

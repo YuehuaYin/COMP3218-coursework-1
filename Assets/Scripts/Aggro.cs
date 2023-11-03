@@ -7,6 +7,7 @@ public class Aggro : MonoBehaviour
 {
     public GameObject enemy;
     public SpriteRenderer sp;
+    private bool aggro = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Aggro : MonoBehaviour
     {
         
         Vector2 dir = enemy.GetComponent<Rigidbody2D>().velocity;
-        if (dir != Vector2.zero)
+        if (dir.magnitude > 0.3 && !aggro || (dir.x !=0 && dir.y != 0))
         {
             dir.Normalize();
             /*
@@ -41,6 +42,7 @@ public class Aggro : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            aggro = true;
             enemy.GetComponent<Enemy>().Aggro();
 
 

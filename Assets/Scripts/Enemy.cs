@@ -1,3 +1,4 @@
+using Minifantasy;
 using Minifantasy.Dungeon;
 using System;
 using System.Collections;
@@ -15,20 +16,20 @@ public class Enemy : MonoBehaviour
     public GameObject healthbar;
     public GameObject sight;
     public GameObject characterContainer;
-    private DUN_AnimatedCharacterSelection animator;
+    private SetAnimatorParameter animator;
     private bool alive = true;
-    private string animMode;
+    private string animMode = "";
     private float deathTimer = 0;
     private float aggroTimer = 1;
+    private bool wallTouch = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = characterContainer.GetComponent<SetAnimatorParameter>();
         
-        animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
-        animator.TurnOffCurrentParameter();
-        animator.ToggleAnimation("Idle");
-        animMode = "Idle";
+        //animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
+        
         player = GameObject.Find("Player");
         Quaternion direction = sight.transform.rotation;
         Debug.Log(direction);
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if (aggro)
         {
-            if (aggroTimer < 10)
+            if (aggroTimer < 10 && !wallTouch)
             {
                 aggroTimer += Time.deltaTime;
             }
@@ -65,12 +66,11 @@ public class Enemy : MonoBehaviour
             }
            // sight.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
-        try
-        {
+        
             if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
             {
 
-                animator.TurnOffCurrentParameter();
+                //animator.TurnOffCurrentParameter();
                 animator.ToggleAnimation("Walk");
                 animMode = "Walk";
                 Debug.Log("Walk started");
@@ -78,17 +78,22 @@ public class Enemy : MonoBehaviour
             }
             else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
             {
-                animator.TurnOffCurrentParameter();
+                //animator.TurnOffCurrentParameter();
                 animator.ToggleAnimation("Idle");
                 animMode = "Idle";
 
                 Debug.Log("Idle started");
                 Debug.Log("Velocity: " + rb.velocity);
             }
-        } catch(Exception e)
+        /*} catch(Exception e)
         {
+            Debug.Log("The enemy animation broke");
             Debug.LogException(e);
+            animator.ToggleAnimation("Walk");
+            animMode = "Walk";
         }
+        Debug.Log(animator.GetAnimation());
+        */
 
         if (rb.velocity.x > 0)
         {
@@ -117,20 +122,39 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   /* private void OnCollisionEnter2D(Collision2D collision)
+    /* private void OnCollisionEnter2D(Collision2D collision)
+     {
+         /*if (collision.gameObject.CompareTag("Bullet"))
+         {
+             healthbar.GetComponent<Health>().Damage(1);
+         }
+         else if (collision.gameObject.CompareTag("Melee"))
+         {
+             healthbar.GetComponent<Health>().Damage(2);
+         }
+
+         Debug.Log("Enemy hit by bullet");
+     }  */
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            healthbar.GetComponent<Health>().Damage(1);
-        }
-        else if (collision.gameObject.CompareTag("Melee"))
-        {
-            healthbar.GetComponent<Health>().Damage(2);
+            Debug.Log("Enemy hit wall");
+            wallTouch = true;
+            aggroTimer = 2;
         }
         
-        Debug.Log("Enemy hit by bullet");
-    }  */
-    
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Enemy left wall");
+            wallTouch = false;
+            aggroTimer = 2;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -154,7 +178,7 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         alive = false;
-        animator.TurnOffCurrentParameter();
+       // animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
         deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
