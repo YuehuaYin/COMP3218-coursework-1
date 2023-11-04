@@ -18,6 +18,7 @@ public class pathFollower : MonoBehaviour
     private Rigidbody2D rb;
     private bool activated = false;
     private Vector2 currentSpeed;
+    public GameObject tutorial;
 
     void Start()
     {
@@ -51,7 +52,7 @@ public class pathFollower : MonoBehaviour
 
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
-            Debug.Log("node reached");
+            //Debug.Log("node reached");
             rb.velocity = Vector2.zero;
             if (!activated) {
                 PathNode[currentNode].activate();
@@ -68,6 +69,12 @@ public class pathFollower : MonoBehaviour
                 {
                     currentNode = 0;
                     CheckNode();
+                }
+                else if (tutorial != null)
+                {
+                    
+                   tutorial.SetActive(true);
+                     
                 }
             }
         } else if (gameObject.CompareTag("Player"))

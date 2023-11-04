@@ -34,7 +34,9 @@ public class PlayerControls : MonoBehaviour
     private bool alive = true;
     private string animMode = "Idle";
     private float deathTimer = 0;
-
+    public AudioSource deathSound;
+    public AudioSource walkSound;
+    private float walkVolume = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +63,8 @@ public class PlayerControls : MonoBehaviour
             animMode = "Walk";
             Debug.Log("Walk started");
             Debug.Log("Velocity: " + rb.velocity);
+            walkSound.volume = 0.1f;
+            walkVolume = 0;
         }
         else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
         {
@@ -70,6 +74,14 @@ public class PlayerControls : MonoBehaviour
 
             Debug.Log("Idle started");
             Debug.Log("Velocity: " + rb.velocity);
+
+            walkVolume = 0.1f;
+        }
+        if (walkVolume > 0)
+        {
+            walkVolume -= Time.deltaTime;
+            if (walkVolume < 0) walkVolume = 0;
+            walkSound.volume = walkVolume;
         }
 
         if (rb.velocity.x > 0)
@@ -270,12 +282,14 @@ public class PlayerControls : MonoBehaviour
 
     private void death()
     {
+        deathSound.Play();
         alive = false;
       //  animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
         deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
+        walkSound.Pause();
     }
 
 }

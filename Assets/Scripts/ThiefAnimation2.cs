@@ -27,7 +27,7 @@ public class ThiefAnimation2 : MonoBehaviour
             //animator.TurnOffCurrentParameter();
             animator.ToggleAnimation("Walk");
             animMode = "Walk";
-            Debug.Log("Walk started");
+            //Debug.Log("Walk started");
             Debug.Log("Velocity: " + rb.velocity);
         }
         else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
@@ -36,7 +36,7 @@ public class ThiefAnimation2 : MonoBehaviour
             animator.ToggleAnimation("Idle");
             animMode = "Idle";
 
-            Debug.Log("Idle started");
+            //Debug.Log("Idle started");
             Debug.Log("Velocity: " + rb.velocity);
         }
 

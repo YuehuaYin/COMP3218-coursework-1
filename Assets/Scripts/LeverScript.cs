@@ -7,6 +7,7 @@ public class LeverScript : MonoBehaviour
 {
     private List<GameObject> listOfChildren;
     public UnityEvent leverActivated = new UnityEvent();
+    public AudioSource leverSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class LeverScript : MonoBehaviour
     } 
 
     public void activate(){
+        leverSound.Play();
+        Debug.Log("Lever sound");
         leverActivated.Invoke();
     }
 }

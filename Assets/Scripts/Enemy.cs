@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     private float deathTimer = 0;
     private float aggroTimer = 1;
     private bool wallTouch = false;
+    public AudioSource deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -173,10 +174,18 @@ public class Enemy : MonoBehaviour
     public void Aggro()
     {
         aggro = true;
+        try
+        {
+            GameObject.Find("BGmusic").GetComponent<bgmusic>().intense();
+        } catch (Exception e)
+        {
+            Debug.Log("BG music not available unless you start from home scene");
+        }
     }
 
     private void Death()
     {
+
         alive = false;
        // animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
@@ -184,6 +193,7 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
         Destroy(sight);
+        deathSound.Play();
     }
 
     

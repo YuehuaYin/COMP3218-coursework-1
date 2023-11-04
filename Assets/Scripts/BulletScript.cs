@@ -6,9 +6,11 @@ public class BulletScript : MonoBehaviour
 {
     private Vector2 move;
     public float speed;
+  //  public AudioSource bulletSound;
     
     void Start()
     {
+       // bulletSound.Play();
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mouse - transform.position;
         direction.z = 0;

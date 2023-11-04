@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
+    //public GameObject music;
     public void nextScene(){
-        switch (SceneManager.GetActiveScene().name) 
+        switch (SceneManager.GetActiveScene().name)
         {
         case "01":
+            //SceneManager.MoveGameObjectToScene(music, SceneManager.GetSceneByName("02"));
             SceneManager.LoadScene("02");
             break;
         case "02":
@@ -32,14 +35,17 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("07");
             break;
         }
+        GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
     }
 
     public void startButton()
     {
         SceneManager.LoadScene("01");
+        
     }
 
     public void restartScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
     }
 }
