@@ -34,6 +34,11 @@ namespace Minifantasy.Dungeon
             currentParameter = nextParameter;
         }
 
+        public string GetAnimation()
+        {
+            return currentParameter;
+        }
+
         public void ToggleXDirection(float x)
         {
             currentAnimator.SetFloat("X", x);

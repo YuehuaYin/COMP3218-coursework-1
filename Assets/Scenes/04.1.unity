@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: sp
       value: 
       objectReference: {fileID: 598985920}
+    - target: {fileID: 3538760298661920319, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 3693207778882252493, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -729,6 +733,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1316,6 +1324,10 @@ PrefabInstance:
       propertyPath: sp
       value: 
       objectReference: {fileID: 1335380150}
+    - target: {fileID: 3538760298661920319, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 3693207778882252493, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1408,6 +1420,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -4309,6 +4325,10 @@ PrefabInstance:
       propertyPath: sp
       value: 
       objectReference: {fileID: 930420843}
+    - target: {fileID: 3538760298661920319, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 3693207778882252493, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4397,6 +4417,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -4722,7 +4746,7 @@ GameObject:
   - component: {fileID: 1256963716}
   m_Layer: 9
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6522,6 +6546,10 @@ PrefabInstance:
       propertyPath: sp
       value: 
       objectReference: {fileID: 2019797345}
+    - target: {fileID: 3538760298661920319, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 3693207778882252493, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6610,6 +6638,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c9502ed6208ce2641949e7dc7e494062, type: 2}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Constraints
       value: 4

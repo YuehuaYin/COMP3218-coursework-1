@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using TMPro;
 using Minifantasy.Dungeon;
 using Unity.VisualScripting;
+using Minifantasy;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject ammoTextObject;
     public GameObject deathTextObject;
     public GameObject characterContainer;
-    private DUN_AnimatedCharacterSelection animator;
+    private SetAnimatorParameter animator;
     private bool alive = true;
     private string animMode = "Idle";
     private float deathTimer = 0;
@@ -46,8 +47,8 @@ public class PlayerControls : MonoBehaviour
         ammo = ammoTextObject.GetComponent<TMPro.TextMeshProUGUI>();
         deathText = deathTextObject.GetComponent<TMPro.TextMeshProUGUI>();
         deathText.text = DeathCounter.deaths.ToString();
-        animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
-
+        //animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
+        animator = characterContainer.GetComponent<SetAnimatorParameter>();
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
         {
-            animator.TurnOffCurrentParameter();
+           // animator.TurnOffCurrentParameter();
             animator.ToggleAnimation("Walk");
             animMode = "Walk";
             Debug.Log("Walk started");
@@ -63,7 +64,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
         {
-            animator.TurnOffCurrentParameter();
+           // animator.TurnOffCurrentParameter();
             animator.ToggleAnimation("Idle");
             animMode = "Idle";
 
@@ -270,7 +271,7 @@ public class PlayerControls : MonoBehaviour
     private void death()
     {
         alive = false;
-        animator.TurnOffCurrentParameter();
+      //  animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
         deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
