@@ -141,7 +141,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         // Right Click to melee
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetMouseButtonDown(1))
         {
             Melee();
         }
