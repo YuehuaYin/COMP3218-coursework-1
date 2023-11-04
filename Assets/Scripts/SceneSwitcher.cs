@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
-    //public GameObject music;
+    public GameObject videoplayer;
+    private UnityEngine.Video.VideoPlayer video;
+    public GameObject button;
+
     public void nextScene(){
         switch (SceneManager.GetActiveScene().name)
         {
@@ -20,6 +23,12 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("03.1");
             break;
         case "03.1":
+            SceneManager.LoadScene("03.2");
+            break;
+        case "03.2":
+            SceneManager.LoadScene("03.3");
+            break;
+        case "03.3":
             SceneManager.LoadScene("04");
             break;
         case "04":
@@ -40,9 +49,18 @@ public class SceneSwitcher : MonoBehaviour
 
     public void startButton()
     {
+        button.SetActive(false);
+        video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
+        video.Play();
+        video.loopPointReached += EndReached;
+    }
+
+    void EndReached(UnityEngine.Video.VideoPlayer video)
+    {
         SceneManager.LoadScene("01");
         
     }
+
 
     public void restartScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

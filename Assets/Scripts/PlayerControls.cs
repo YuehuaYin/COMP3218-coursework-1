@@ -141,7 +141,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         // Right Click to melee
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.E))
         {
             Melee();
         }
@@ -223,10 +223,6 @@ public class PlayerControls : MonoBehaviour
            
         }
 
-        if (Input.GetKey(KeyCode.R)){
-            death();
-        }
-
         if (deathTimer > 0)
         {
             deathTimer -= Time.deltaTime;
@@ -262,6 +258,7 @@ public class PlayerControls : MonoBehaviour
             meleeAttack.attack();
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
@@ -305,13 +302,12 @@ public class PlayerControls : MonoBehaviour
             invisTimer = 5;
             sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);
         }
-            
-        
     } 
 
-    private void death()
+    public void death()
     {
         deathSound.Play();
+        Debug.Log("dead");
         alive = false;
       //  animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
