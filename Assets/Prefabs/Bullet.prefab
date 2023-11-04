@@ -330,4 +330,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: -1000
-  bulletSound: {fileID: 0}

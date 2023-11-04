@@ -118,6 +118,7 @@ MonoBehaviour:
   characterContainer: {fileID: 4290572704020182912}
   deathSound: {fileID: 7734045538300252511}
   walkSound: {fileID: 528250051518065874}
+  model: {fileID: 4290572702785401242}
 --- !u!50 &6586769407332070882
 Rigidbody2D:
   serializedVersion: 4
@@ -709,6 +710,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+--- !u!1 &4290572702785401242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5272552500058403403, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+  m_PrefabInstance: {fileID: 8259869672109163473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4290572704020182912 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5272552499143439441, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}

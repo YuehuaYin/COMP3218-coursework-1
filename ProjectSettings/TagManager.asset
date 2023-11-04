@@ -13,6 +13,8 @@ TagManager:
   - Box
   - HigherFloor
   - Wall
+  - DeathCounter
+  - InvisibilityPotion
   layers:
   - Default
   - TransparentFX

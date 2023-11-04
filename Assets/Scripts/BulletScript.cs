@@ -27,8 +27,19 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        Destroy(this.gameObject);
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        {
+            
+            Destroy(gameObject);
+        }
+       
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Wall")) 
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

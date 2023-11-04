@@ -37,6 +37,10 @@ public class PlayerControls : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource walkSound;
     private float walkVolume = 0;
+    private bool invis = false;
+    private float invisTimer = 0;
+    private SpriteRenderer sp;
+    public GameObject model;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,7 @@ public class PlayerControls : MonoBehaviour
         deathText.text = DeathCounter.deaths.ToString();
         //animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
         animator = characterContainer.GetComponent<SetAnimatorParameter>();
+        sp = model.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -157,6 +162,25 @@ public class PlayerControls : MonoBehaviour
                 invincibilityTimer = 0;
                 invincible = false;
                 GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+        if (invisTimer > 0)
+        {
+            invisTimer -= Time.deltaTime;
+            if ((int)(invisTimer * 10) % 2 == 0 && invisTimer < 1)
+            {
+                sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 1);
+            }
+            else
+            {
+                sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);
+            }
+            if (invisTimer <= 0)
+            {
+                invisTimer = 0;
+                invis = false;
+                sp.enabled = true;
+                sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 1);
             }
         }
 
@@ -275,6 +299,11 @@ public class PlayerControls : MonoBehaviour
             ammoCount++;
             ammo.text = ammoCount.ToString();
             Destroy(collision.gameObject);
+        } else if (collision.CompareTag("InvisibilityPotion"))
+        {
+            invis = true;
+            invisTimer = 5;
+            sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);
         }
             
         
