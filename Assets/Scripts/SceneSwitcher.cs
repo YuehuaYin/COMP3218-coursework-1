@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
+    public GameObject videoplayer;
+    private UnityEngine.Video.VideoPlayer video;
+    public GameObject button;
+
     public void nextScene(){
         switch (SceneManager.GetActiveScene().name) 
         {
@@ -36,8 +40,17 @@ public class SceneSwitcher : MonoBehaviour
 
     public void startButton()
     {
+        button.SetActive(false);
+        video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
+        video.Play();
+        video.loopPointReached += EndReached;
+    }
+
+    void EndReached(UnityEngine.Video.VideoPlayer video)
+    {
         SceneManager.LoadScene("01");
     }
+
 
     public void restartScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

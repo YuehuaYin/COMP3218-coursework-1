@@ -15,13 +15,14 @@ public class MeleeAttack : MonoBehaviour
     {
         parent = transform.parent.gameObject;
         attackDuration = 0.5f;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {   
+        /*
         if (attacking == false)
         {
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -29,14 +30,16 @@ public class MeleeAttack : MonoBehaviour
             direction.z = 0;
             transform.position = (Vector2)(parent.transform.position + (direction.normalized * 1f));
         }
-        else
+        */
+
+        if (attacking)
         {
             if (timer >= attackDuration)
             {
                 attacking = false;
                 timer = 0f;
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                //this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
 
             }
             timer += Time.deltaTime;
@@ -47,7 +50,7 @@ public class MeleeAttack : MonoBehaviour
     public void attack()
     {
         attacking = true;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        this.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 }
