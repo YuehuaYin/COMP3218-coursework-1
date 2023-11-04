@@ -48,7 +48,11 @@ public class pathFollower : MonoBehaviour
     void Update()
     {
 
-
+        if (follower == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
@@ -77,7 +81,10 @@ public class pathFollower : MonoBehaviour
                      
                 }
             }
-        } else if (gameObject.CompareTag("Player"))
+        } else if (follower.CompareTag("Player"))
+        {
+            rb.velocity = currentSpeed;
+        } else if (!follower.GetComponent<Enemy>().getAggro())
         {
             rb.velocity = currentSpeed;
         }

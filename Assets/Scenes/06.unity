@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2855737350914464929, guid: be9000c174f30614298c6fa88d76607f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.62
+      objectReference: {fileID: 0}
     - target: {fileID: 4086555771680368372, guid: be9000c174f30614298c6fa88d76607f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.770466
@@ -652,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419458764220516397, guid: fb71eb44a7393c340957b3e57d337b16, type: 3}
       propertyPath: m_Mass
-      value: 0.01
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4285,6 +4289,7 @@ MonoBehaviour:
   pauseTime: 0
   mechanic: {fileID: 0}
   thiefShoot: {fileID: 0}
+  interact: {fileID: 0}
 --- !u!212 &1418312473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5260,6 +5265,7 @@ MonoBehaviour:
   pauseTime: 0.1
   mechanic: {fileID: 0}
   thiefShoot: {fileID: 0}
+  interact: {fileID: 0}
 --- !u!212 &1643151000
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5575,6 +5581,7 @@ MonoBehaviour:
   pauseTime: 1
   mechanic: {fileID: 0}
   thiefShoot: {fileID: 0}
+  interact: {fileID: 0}
 --- !u!212 &1694633163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5783,7 +5790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd4049d64b1e81479d51083127be8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 2800000, guid: a1e67bdd04ab1c74282411f68a5f1589, type: 3}
+  crosshair: {fileID: 2800000, guid: 7b6c5f2984328cb4292fb164e8a5e378, type: 3}
 --- !u!4 &1899527504
 Transform:
   m_ObjectHideFlags: 0

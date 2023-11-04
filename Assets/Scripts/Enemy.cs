@@ -173,27 +173,46 @@ public class Enemy : MonoBehaviour
 
     public void Aggro()
     {
-        aggro = true;
-        try
+        if (!aggro)
         {
-            GameObject.Find("BGmusic").GetComponent<bgmusic>().intense();
-        } catch (Exception e)
-        {
-            Debug.Log("BG music not available unless you start from home scene");
+            aggro = true;
+            try
+            {
+                GameObject.Find("BGmusic").GetComponent<bgmusic>().intense();
+            }
+            catch (Exception e)
+            {
+                Debug.Log("BG music not available unless you start from home scene");
+            }
         }
+    }
+
+    public bool getAggro()
+    {
+
+        return aggro|| !alive;
     }
 
     private void Death()
     {
-
+        if (alive) { 
         alive = false;
-       // animator.TurnOffCurrentParameter();
+        // animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
         deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
         Destroy(sight);
         deathSound.Play();
+        try
+        {
+            GameObject.Find("BGmusic").GetComponent<bgmusic>().unaggro();
+        }
+        catch (Exception e)
+        {
+            Debug.Log("BG music not available unless you start from home scene");
+        }
+        }
     }
 
     

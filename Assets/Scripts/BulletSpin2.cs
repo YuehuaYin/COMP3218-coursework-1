@@ -10,7 +10,7 @@ public class BulletSpin2 : MonoBehaviour
     void Start()
     {
         
-        Debug.Log("Enemy bullet");
+        
 
     }
 

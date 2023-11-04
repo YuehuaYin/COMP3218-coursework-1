@@ -8,15 +8,28 @@ public class bgmusic : MonoBehaviour
     public AudioSource calmSong;
     public AudioSource intenseSong;
     private string mode = "calm";
+    private int aggroCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
 
+    public void unaggro()
+    {
+        aggroCount--;
+        Debug.Log("aggro count " + aggroCount);
+        if (aggroCount <= 0 )
+        {
+            calm();
+        }
+    }
+
 
     public void intense()
     {
+        aggroCount++;
         if (mode != "intense")
         {
             //calmSong.pitch = 1.5f;
@@ -28,6 +41,7 @@ public class bgmusic : MonoBehaviour
 
     public void calm()
     {
+        aggroCount = 0;
         if (mode != "calm")
         {
             calmSong.pitch = 1;

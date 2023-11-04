@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
@@ -44,7 +45,13 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("07");
             break;
         }
-        GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
+        try
+        {
+            GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
+        } catch (Exception e)
+        {
+            Debug.Log("No bg music");
+        }
     }
 
     public void startButton()
@@ -64,6 +71,12 @@ public class SceneSwitcher : MonoBehaviour
 
     public void restartScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
+        try
+        {
+            GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
+        } catch (Exception e)
+        {
+            Debug.Log("No bg music");
+        }
     }
 }

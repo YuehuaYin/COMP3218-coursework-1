@@ -242,7 +242,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5975,7 +5975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd4049d64b1e81479d51083127be8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 2800000, guid: a1e67bdd04ab1c74282411f68a5f1589, type: 3}
+  crosshair: {fileID: 2800000, guid: 7b6c5f2984328cb4292fb164e8a5e378, type: 3}
 --- !u!4 &1899527504
 Transform:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class PlayerControls : MonoBehaviour
     private float invisTimer = 0;
     private SpriteRenderer sp;
     public GameObject model;
+    private bool reset = false;
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +114,9 @@ public class PlayerControls : MonoBehaviour
         if (alive)
         {
             rb.velocity = new Vector2(x * speed, y * speed);
+        } else
+        {
+            rb.velocity = Vector2.zero;
         }
 
         //new movement to allow for knockback and dash?
@@ -184,7 +188,7 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
+        /*if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
         {
             //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Vector3 direction = mouse - transform.position;
@@ -200,7 +204,7 @@ public class PlayerControls : MonoBehaviour
             {
                 rayMagnitude *= 0.9f;
                 wallDetect = Physics2D.Raycast(rb.position, direction, dashSpeed * rayMagnitude, 9);
-            }*/
+            }
             if (wallDetect.collider == null)
             {
                 transform.position += new Vector3(direction.x * dashSpeed * rayMagnitude, direction.y * dashSpeed *rayMagnitude, 0);
@@ -221,7 +225,7 @@ public class PlayerControls : MonoBehaviour
         {
             dashTimer -= Time.deltaTime;
            
-        }
+        }*/
 
         if (deathTimer > 0)
         {
@@ -314,7 +318,15 @@ public class PlayerControls : MonoBehaviour
         deathTimer = 1.4f;
         rb.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
+        
         walkSound.Pause();
+    }
+
+    public void resetButton()
+    {
+        //DeathCounter.deaths += 1;
+        //deathText.text = DeathCounter.deaths.ToString();
+        sceneSwitcher.restartScene();
     }
 
 }

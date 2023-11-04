@@ -27,6 +27,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision entered bullet " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
         {
             
@@ -36,6 +37,8 @@ public class BulletScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        Debug.Log("Trigger entered bullet " + collision.tag);
         if (collision.CompareTag("Enemy") || collision.CompareTag("Wall")) 
         {
             Destroy(gameObject);
