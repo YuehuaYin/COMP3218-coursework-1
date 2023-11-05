@@ -43,6 +43,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject model;
     private bool reset = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -188,6 +189,8 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
+
+
         /*if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
         {
             //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -328,5 +331,11 @@ public class PlayerControls : MonoBehaviour
         //deathText.text = DeathCounter.deaths.ToString();
         sceneSwitcher.restartScene();
     }
+
+    public bool getInvis()
+    {
+        return invis;
+    }
+
 
 }

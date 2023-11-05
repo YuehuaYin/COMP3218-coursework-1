@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,11 +39,25 @@ namespace Minifantasy
 
         public void ToggleXDirection(int x)
         {
-            animator.SetFloat("X", x);
+            try
+            {
+                animator.SetFloat("X", x);
+            } catch (Exception e)
+            {
+                Debug.Log("Toggle x fail");
+            }
         }
         public void ToggleYDirection(int y)
         {
-            animator.SetFloat("Y", y);
+           
+            try
+            {
+                animator.SetFloat("Y", y);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Toggle x fail");
+            }
         }
     }
 }

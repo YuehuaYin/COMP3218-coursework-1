@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterContainer: {fileID: 9193401723780710990}
+  invisTimer: 0
+  model: {fileID: 9193401724695938132}
 --- !u!1 &4525040152409560994
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,5 +536,10 @@ Transform:
 --- !u!1 &9193401723780710990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5272552499143439441, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+  m_PrefabInstance: {fileID: 3944687873678325279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9193401724695938132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5272552500058403403, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
   m_PrefabInstance: {fileID: 3944687873678325279}
   m_PrefabAsset: {fileID: 0}

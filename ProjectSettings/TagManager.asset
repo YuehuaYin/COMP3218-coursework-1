@@ -64,3 +64,6 @@ TagManager:
   - name: Above Player
     uniqueID: 3517013583
     locked: 0
+  - name: Pause menu
+    uniqueID: 3717771653
+    locked: 0

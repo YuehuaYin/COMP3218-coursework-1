@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     private float aggroTimer = 1;
     private bool wallTouch = false;
     public AudioSource deathSound;
+    private bool invis = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,26 +50,47 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (aggro)
         {
-            if (aggroTimer < 10 && !wallTouch)
+            if (player.GetComponent<PlayerControls>().getInvis() && alive)
             {
-                aggroTimer += Time.deltaTime;
-            }
-            Vector2 direct = player.transform.position - transform.position;
-            if (direct.magnitude < 0.1)
-            {
+                aggro = false;
                 rb.velocity = Vector2.zero;
+                sight.GetComponent<SpriteRenderer>().color = Color.blue;
+                try
+                {
+                    
+                        GameObject.Find("BGmusic").GetComponent<bgmusic>().unaggro();
+                    
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("BG music not available unless you start from home scene");
+                }
             }
-            else if (alive)
+            else
             {
-                direct.Normalize();
-                rb.velocity = direct * speed * aggroTimer * 0.5f;
+                if (aggroTimer < 10 && !wallTouch)
+                {
+                    aggroTimer += Time.deltaTime;
+                }
+                Vector2 direct = player.transform.position - transform.position;
+                if (direct.magnitude < 0.1)
+                {
+                    rb.velocity = Vector2.zero;
+                }
+                else if (alive)
+                {
+                    direct.Normalize();
+                    rb.velocity = direct * speed * aggroTimer * 0.5f;
+                }
             }
            // sight.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
         
-            if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
+        if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
             {
 
                 //animator.TurnOffCurrentParameter();
@@ -76,16 +98,16 @@ public class Enemy : MonoBehaviour
                 animMode = "Walk";
                 Debug.Log("Walk started");
                 Debug.Log("Velocity: " + rb.velocity);
-            }
-            else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
-            {
+        }
+        else if (rb.velocity.magnitude == 0 && alive && animMode != "Idle")
+        { 
                 //animator.TurnOffCurrentParameter();
                 animator.ToggleAnimation("Idle");
                 animMode = "Idle";
 
                 Debug.Log("Idle started");
                 Debug.Log("Velocity: " + rb.velocity);
-            }
+        }
         /*} catch(Exception e)
         {
             Debug.Log("The enemy animation broke");
@@ -119,6 +141,19 @@ public class Enemy : MonoBehaviour
             if (deathTimer <= 0)
             {
                 Destroy(gameObject);
+            }
+        }
+        if (sight != null)
+        {
+            if (player.GetComponent<PlayerControls>().getInvis() && !invis)
+            {
+                sight.GetComponent<PolygonCollider2D>().enabled = false;
+                invis = true;
+            }
+            else if (invis)
+            {
+                sight.GetComponent<PolygonCollider2D>().enabled = true;
+                invis = false;
             }
         }
     }
@@ -204,9 +239,14 @@ public class Enemy : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         Destroy(sight);
         deathSound.Play();
+        
         try
         {
-            GameObject.Find("BGmusic").GetComponent<bgmusic>().unaggro();
+                if (aggro)
+                {
+                    GameObject.Find("BGmusic").GetComponent<bgmusic>().unaggro();
+                    aggro = false;
+                }
         }
         catch (Exception e)
         {

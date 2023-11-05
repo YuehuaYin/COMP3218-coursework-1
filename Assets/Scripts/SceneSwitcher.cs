@@ -9,6 +9,9 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject videoplayer;
     private UnityEngine.Video.VideoPlayer video;
     public GameObject button;
+    public GameObject pauseMenu;
+    private GameObject reset;
+    
 
     public void nextScene(){
         switch (SceneManager.GetActiveScene().name)
@@ -44,6 +47,9 @@ public class SceneSwitcher : MonoBehaviour
         case "06":
             SceneManager.LoadScene("07");
             break;
+        case "07":
+            SceneManager.LoadScene("08");
+            break;
         }
         try
         {
@@ -78,5 +84,64 @@ public class SceneSwitcher : MonoBehaviour
         {
             Debug.Log("No bg music");
         }
+        play();
+    }
+    public void play()
+    {
+        Time.timeScale = 1.0f;
+        AudioListener.volume = 1;
+        try
+        {
+            GameObject.Find("Pause").SetActive(false);
+        } catch (Exception e)
+        {
+
+        }
+        try
+        {
+            GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(true);
+        } catch (Exception e)
+        {
+
+        }
+
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (pauseMenu != null)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+                AudioListener.volume = 0;
+                Debug.Log(reset.transform.position);
+
+                reset.SetActive(false);
+            } else
+            {
+                Debug.Log("Pause menu is null");
+            }
+            
+        }
+    }
+    public void Start()
+    {
+        try
+        {
+            reset = GameObject.Find("Reset Level");
+        } catch (Exception e)
+        {
+
+        }
+
+        //al = GameObject.Find("Main Camera").GetComponent<AudioListener>();
+    }
+
+    public void gameQuit()
+    {
+        Application.Quit();
     }
 }

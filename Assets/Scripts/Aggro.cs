@@ -42,19 +42,24 @@ public class Aggro : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Vector2 direction = collision.transform.position - transform.position;
-            int mask = 1 << 9;
-            RaycastHit2D wallDetect = Physics2D.Raycast(transform.position, direction, direction.magnitude, mask);
-            if (wallDetect.collider == null) { 
-             aggro = true;
-             enemy.GetComponent<Enemy>().Aggro();
+           // if (!collision.gameObject.GetComponent<PlayerControls>().getInvis())
+           // {
+                Vector2 direction = collision.transform.position - transform.position;
+                int mask = 1 << 9;
+                RaycastHit2D wallDetect = Physics2D.Raycast(transform.position, direction, direction.magnitude, mask);
+                if (wallDetect.collider == null)
+                {
+                    aggro = true;
+                    enemy.GetComponent<Enemy>().Aggro();
 
 
-              sp.color = Color.red;
-            } else
-            {
-                Debug.Log("There is a wall in the way. No aggro");
-            }
+                    sp.color = Color.red;
+                }
+                else
+                {
+                    Debug.Log("There is a wall in the way. No aggro");
+                }
+           // }
 
         }
         
