@@ -8,6 +8,7 @@ public class Aggro : MonoBehaviour
     public GameObject enemy;
     public SpriteRenderer sp;
     private bool aggro = false;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private bool wallTouch = false;
     public AudioSource deathSound;
     private bool invis = false;
+    private bool boxTouch = false;
 
     // Start is called before the first frame update
     void Start()
@@ -156,6 +157,10 @@ public class Enemy : MonoBehaviour
                 invis = false;
             }
         }
+        if (!alive)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     /* private void OnCollisionEnter2D(Collision2D collision)
@@ -179,6 +184,10 @@ public class Enemy : MonoBehaviour
             wallTouch = true;
             aggroTimer = 2;
         }
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            boxTouch = true;
+        }
         
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -188,6 +197,10 @@ public class Enemy : MonoBehaviour
             Debug.Log("Enemy left wall");
             wallTouch = false;
             aggroTimer = 2;
+        }
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            boxTouch = false;
         }
     }
 
@@ -226,6 +239,10 @@ public class Enemy : MonoBehaviour
     {
 
         return aggro|| !alive;
+    }
+    public bool touchingBox()
+    {
+        return boxTouch && alive && !aggro;
     }
 
     private void Death()

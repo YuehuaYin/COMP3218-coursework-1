@@ -80,7 +80,9 @@ public class pathFollower : MonoBehaviour
 
                 }
             }
-            } else if (rb.velocity == Vector2.zero)
+            } else if (rb.velocity == Vector2.zero && follower.CompareTag("Enemy"))
+            {
+            if (follower.GetComponent<Enemy>().touchingBox())
             {
                 currentNode--;
                 if (currentNode < 0)
@@ -88,9 +90,9 @@ public class pathFollower : MonoBehaviour
                     currentNode = PathNode.Length - 1;
                 }
                 CheckNode();
-            
+            }
         }
-        else if (follower.CompareTag("Player"))
+        else if (follower.CompareTag("Player") || follower.CompareTag("Boss"))
         {
             rb.velocity = currentSpeed;
         } else if (!follower.GetComponent<Enemy>().getAggro())

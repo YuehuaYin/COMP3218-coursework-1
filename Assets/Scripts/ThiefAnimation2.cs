@@ -81,4 +81,9 @@ public class ThiefAnimation2 : MonoBehaviour
             }
         }
     }
+
+    public void left()
+    {
+        animator.ToggleXDirection(-1);
+    }
 }

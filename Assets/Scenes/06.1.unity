@@ -241,7 +241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1306951879734231678, guid: d2a732a05bd9e5d4ea56d5cc79426a38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.32
+      value: -6.02
       objectReference: {fileID: 0}
     - target: {fileID: 1306951879734231678, guid: d2a732a05bd9e5d4ea56d5cc79426a38, type: 3}
       propertyPath: m_LocalPosition.y
@@ -387,7 +387,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2904639623713785489, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.06
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: 2904639623713785489, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140738964642821233, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 6140738964642821233, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.z
@@ -953,6 +953,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -120365715
+      objectReference: {fileID: 0}
     - target: {fileID: 1674836115147353292, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_Name
       value: PressurePlate (2)
@@ -1038,7 +1046,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3234,6 +3242,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -120365715
+      objectReference: {fileID: 0}
     - target: {fileID: 1674836115147353292, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_Name
       value: PressurePlate (1)
@@ -3257,11 +3273,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1154375799707272647, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.51
+      value: 0.501
       objectReference: {fileID: 0}
     - target: {fileID: 1154375799707272647, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 2.485
       objectReference: {fileID: 0}
     - target: {fileID: 1154375799707272647, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3306,6 +3322,14 @@ PrefabInstance:
     - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166475358244640238, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -120365715
       objectReference: {fileID: 0}
     - target: {fileID: 1674836115147353292, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
       propertyPath: m_Name
@@ -4944,7 +4968,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -6814,7 +6838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2670392679635481625, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 13.69
       objectReference: {fileID: 0}
     - target: {fileID: 2670392679635481625, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6822,7 +6846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904639623713785489, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.84
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 2904639623713785489, guid: ba5ef6379f0f0584db61dc28a2c51f04, type: 3}
       propertyPath: m_LocalPosition.y

@@ -23,7 +23,7 @@ public class BulletScript : MonoBehaviour
 
     void Update() 
     {
-        transform.Translate(move);
+        transform.Translate(move * Time.deltaTime);
         timer += Time.deltaTime;
         if (timer > 0.02f)
         {

@@ -26,7 +26,7 @@ public class Plate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Something on the pressure plate");
-        if (collision.CompareTag("Box") || collision.CompareTag("Player"))
+        if (collision.CompareTag("Box"))
         {
             sp.color = new Color(0.6f*ogcolour.r, 0.6f*ogcolour.g, 0.6f * ogcolour.b, 1);
             collisions++;
@@ -38,7 +38,7 @@ public class Plate : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Box") || collision.CompareTag("Player"))
+        if (collision.CompareTag("Box"))
         {
             collisions--;
             if (collisions <= 0)
