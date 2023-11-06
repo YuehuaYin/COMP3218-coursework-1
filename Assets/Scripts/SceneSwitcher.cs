@@ -30,9 +30,6 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("03.2");
             break;
         case "03.2":
-            SceneManager.LoadScene("03.3");
-            break;
-        case "03.3":
             SceneManager.LoadScene("04");
             break;
         case "04":
@@ -41,7 +38,10 @@ public class SceneSwitcher : MonoBehaviour
         case "04.1":
             SceneManager.LoadScene("05");
             break;
-        case "05":
+        case "05"
+            SceneManager.LoadScene("05.1");
+            break;
+        case "05.1":
             SceneManager.LoadScene("06");
             break;
         case "06":
@@ -49,6 +49,9 @@ public class SceneSwitcher : MonoBehaviour
             break;
         case "07":
             SceneManager.LoadScene("08");
+            break;
+        case "08":
+            SceneManager.LoadScene("09");
             break;
         }
         try
