@@ -76,6 +76,7 @@ public class SceneSwitcher : MonoBehaviour
 
 
     public void restartScene(){
+        DeathCounter.deaths += 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         try
         {
