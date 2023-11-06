@@ -6,7 +6,8 @@ public class BulletScript : MonoBehaviour
 {
     private Vector2 move;
     public float speed;
-  //  public AudioSource bulletSound;
+    //  public AudioSource bulletSound;
+    private float timer;
     
     void Start()
     {
@@ -17,20 +18,25 @@ public class BulletScript : MonoBehaviour
         direction.Normalize();
         move = direction * speed;
         Debug.Log(move);
+        GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
     void Update() 
     {
         transform.Translate(move);
+        timer += Time.deltaTime;
+        if (timer > 0.02f)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = true;
+        }
         
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision entered bullet " + collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") )
         {
-            
             Destroy(gameObject);
         }
        
@@ -39,7 +45,7 @@ public class BulletScript : MonoBehaviour
     {
 
         Debug.Log("Trigger entered bullet " + collision.tag);
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Wall")) 
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Wall") ) 
         {
             Destroy(gameObject);
         }
