@@ -53,7 +53,6 @@ public class pathFollower : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
             //Debug.Log("node reached");
@@ -63,7 +62,7 @@ public class pathFollower : MonoBehaviour
                 activated = true;
             }
             PauseTimer += Time.deltaTime;
-            if (PauseTimer >= PathNode[currentNode].pauseTime){
+            if (PauseTimer >= PathNode[currentNode].pauseTime) {
                 if (currentNode < PathNode.Length - 1)
                 {
                     currentNode++;
@@ -76,12 +75,22 @@ public class pathFollower : MonoBehaviour
                 }
                 else if (tutorial != null)
                 {
-                    
-                   tutorial.SetActive(true);
-                     
+
+                    tutorial.SetActive(true);
+
                 }
             }
-        } else if (follower.CompareTag("Player"))
+            } else if (rb.velocity == Vector2.zero)
+            {
+                currentNode--;
+                if (currentNode < 0)
+                {
+                    currentNode = PathNode.Length - 1;
+                }
+                CheckNode();
+            
+        }
+        else if (follower.CompareTag("Player"))
         {
             rb.velocity = currentSpeed;
         } else if (!follower.GetComponent<Enemy>().getAggro())
