@@ -17,17 +17,17 @@ public class CameraMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x < minX)
+        if (player.transform.position.x + 8 < minX)
         {
             transform.position = new Vector3(minX, this.gameObject.transform.position.y, transform.position.z);
         }
-        else if (player.transform.position.x > maxX) 
+        else if (player.transform.position.x + 8 > maxX) 
         {
             transform.position = new Vector3(maxX, this.gameObject.transform.position.y, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(player.transform.position.x, this.gameObject.transform.position.y, transform.position.z);
+            transform.position = new Vector3(player.transform.position.x + 8, this.gameObject.transform.position.y, transform.position.z);
         }
     }
 }
