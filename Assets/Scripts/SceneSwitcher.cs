@@ -45,6 +45,9 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene("06");
             break;
         case "06":
+            SceneManager.LoadScene("06.1");
+            break;
+        case "06.1":
             SceneManager.LoadScene("07");
             break;
         case "07":
@@ -52,6 +55,12 @@ public class SceneSwitcher : MonoBehaviour
             break;
         case "08":
             SceneManager.LoadScene("09");
+            break;
+        case "09":
+            SceneManager.LoadScene("Final");
+            break;
+        case "Final":
+            SceneManager.LoadScene("End Screen");
             break;
         }
         try
@@ -143,6 +152,8 @@ public class SceneSwitcher : MonoBehaviour
 
         //al = GameObject.Find("Main Camera").GetComponent<AudioListener>();
     }
+
+    
 
     public void gameQuit()
     {

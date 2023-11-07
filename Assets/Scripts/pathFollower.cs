@@ -53,9 +53,10 @@ public class pathFollower : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
         if (Mathf.Abs((follower.transform.position - CurrentPosition).magnitude) < 0.3)
         {
-            //Debug.Log("node reached");
+            Debug.Log("node reached");
             rb.velocity = Vector2.zero;
             if (!activated) {
                 PathNode[currentNode].activate();
@@ -78,8 +79,12 @@ public class pathFollower : MonoBehaviour
 
                     tutorial.SetActive(true);
 
+                } else if (follower.CompareTag("Boss"))
+                {
+                    Destroy(gameObject);
                 }
             }
+
             } else if (rb.velocity == Vector2.zero && follower.CompareTag("Enemy"))
             {
             if (follower.GetComponent<Enemy>().touchingBox())

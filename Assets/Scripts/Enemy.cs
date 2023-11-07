@@ -128,7 +128,12 @@ public class Enemy : MonoBehaviour
             animator.ToggleXDirection(-1);
 
         }
-        if (rb.velocity.y > 0)
+        float ratio = rb.velocity.y;
+        if (rb.velocity.x != 0)
+        {
+            ratio = rb.velocity.y / Mathf.Abs(rb.velocity.x);
+        }
+        if (ratio > 0.2)
         {
             animator.ToggleYDirection(1);
         }

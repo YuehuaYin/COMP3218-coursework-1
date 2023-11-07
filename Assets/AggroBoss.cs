@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,14 +50,24 @@ public class AggroBoss : MonoBehaviour
         Vector2 dir = Vector2.zero;
         if (rb.velocity != Vector2.zero)
         {
+            if (targetOn)
+            {
+                targetOn = false;
+                targetTimer = 0;
+                bulletReady = true;
+                ts.disappear();
+            }
             dir = rb.velocity;
             aggro = false;
+            sp.color = Color.blue;
+            
         } else if (aggro)
         {
             dir = player.transform.position - transform.position;
         } else
         {
             dir = new Vector2(-1,max-timer);
+            sp.color = new Color(1f, 0.72f, 0f, 0.5f);
         }
         if (dir.magnitude > 0.3 && !aggro || (dir.x != 0 && dir.y != 0))
         {
@@ -72,15 +83,26 @@ public class AggroBoss : MonoBehaviour
             Vector2 direction = player.transform.position - transform.position;
             int mask = 1 << 9;
             RaycastHit2D wallDetect = Physics2D.Raycast(transform.position, direction, direction.magnitude, mask);
-            if (wallDetect.collider == null && !aggro)
+            if (wallDetect.collider == null && !aggro && !player.GetComponent<PlayerControls>().getInvis())
             {
                 aggro = true;
-
-                targetTimer = 0;
-                target.transform.position = player.transform.position;
-                target.SetActive(true);
-                ts.appear();
-                sp.color = new Color(1f, 0.72f, 0f, 1f);
+                try
+                {
+                    GameObject.Find("BGmusic").GetComponent<bgmusic>().intense();
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("BG music not available unless you start from home scene");
+                }
+                if (!targetOn)
+                {
+                    targetTimer = 0;
+                    target.transform.position = player.transform.position;
+                    target.SetActive(true);
+                    ts.appear();
+                }
+                //sp.color = new Color(1f, 0.72f, 0f, 0.5f);
+                sp.color = Color.red;
                 targetOn = true;
                 transform.localScale = Vector3.one * 1.6f;
                 
@@ -154,8 +176,20 @@ public class AggroBoss : MonoBehaviour
         }
     }
 
-    private void unaggro()
+    public void unaggro()
     {
+        try
+        {
+            if (aggro)
+            {
+                GameObject.Find("BGmusic").GetComponent<bgmusic>().unaggro();
+                
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log("BG music not available unless you start from home scene");
+        }
         aggro = false;
         sp.color = Color.blue;
         transform.localScale = Vector3.one * 1.5f;
@@ -164,5 +198,6 @@ public class AggroBoss : MonoBehaviour
         timer = max - (player.transform.position.y - transform.position.y) / -(player.transform.position.x - transform.position.x);
 
         Debug.Log(timer);
+
     }
 }
