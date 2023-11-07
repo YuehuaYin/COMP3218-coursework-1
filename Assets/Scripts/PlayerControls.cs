@@ -267,7 +267,7 @@ public class PlayerControls : MonoBehaviour
             deathTimer -= Time.deltaTime;
             if (deathTimer <=0)
             {           
-                //DeathCounter.deaths+=1;
+                DeathCounter.deaths+=1;
                 deathText.text = DeathCounter.deaths.ToString();
                 sceneSwitcher.restartScene();
             }

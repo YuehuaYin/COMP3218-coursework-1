@@ -48,7 +48,7 @@ public class Aggro : MonoBehaviour
                 Vector2 direction = collision.transform.position - transform.position;
                 int mask = 1 << 9;
                 RaycastHit2D wallDetect = Physics2D.Raycast(transform.position, direction, direction.magnitude, mask);
-                if (wallDetect.collider == null)
+                if (wallDetect.collider == null && !collision.gameObject.GetComponent<PlayerControls>().getInvis())
                 {
                     aggro = true;
                     enemy.GetComponent<Enemy>().Aggro();

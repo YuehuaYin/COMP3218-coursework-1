@@ -226,7 +226,7 @@ public class Enemy : MonoBehaviour
 
     public void Aggro()
     {
-        if (!aggro)
+        if (!aggro && !player.GetComponent<PlayerControls>().getInvis())
         {
             aggro = true;
             try

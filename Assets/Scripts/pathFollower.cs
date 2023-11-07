@@ -19,6 +19,7 @@ public class pathFollower : MonoBehaviour
     private bool activated = false;
     private Vector2 currentSpeed;
     public GameObject tutorial;
+    private float stuckTimer = 0;
 
     void Start()
     {
@@ -89,12 +90,17 @@ public class pathFollower : MonoBehaviour
             {
             if (follower.GetComponent<Enemy>().touchingBox())
             {
-                currentNode--;
-                if (currentNode < 0)
+                stuckTimer += Time.deltaTime;
+                if (stuckTimer > 0.5f)
                 {
-                    currentNode = PathNode.Length - 1;
+                    stuckTimer = 0;
+                    currentNode--;
+                    if (currentNode < 0)
+                    {
+                        currentNode = PathNode.Length - 1;
+                    }
+                    CheckNode();
                 }
-                CheckNode();
             }
         }
         else if (follower.CompareTag("Player") || follower.CompareTag("Boss"))
@@ -103,6 +109,10 @@ public class pathFollower : MonoBehaviour
         } else if (!follower.GetComponent<Enemy>().getAggro())
         {
             rb.velocity = currentSpeed;
+        }
+        if (rb.velocity != Vector2.zero)
+        {
+            stuckTimer = 0;
         }
         
 
