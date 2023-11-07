@@ -44,8 +44,8 @@ public class bgmusic : MonoBehaviour
         aggroCount = 0;
         if (mode != "calm")
         {
-            calmSong.pitch = 1;
-            calmSong.volume = 0.2f;
+            //calmSong.pitch = 1;
+            //calmSong.volume = 0.2f;
             calmSong.reverbZoneMix = 1;
             mode = "calm";
         }
@@ -58,6 +58,11 @@ public class bgmusic : MonoBehaviour
         {
             calmSong.pitch += Time.deltaTime *0.5f;
             calmSong.volume += Time.deltaTime *0.3f;
+
+        } else if (mode == "calm" && calmSong.pitch > 1)
+        {
+            calmSong.pitch -= Time.deltaTime * 0.5f;
+            calmSong.volume -= Time.deltaTime * 0.3f;
 
         }
     }

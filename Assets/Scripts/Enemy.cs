@@ -252,7 +252,18 @@ public class Enemy : MonoBehaviour
 
     private void Death()
     {
-        if (alive) { 
+        if (alive) {
+
+            DeathCounter.score += 100;
+            try
+            {
+                GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = DeathCounter.score.ToString();
+                GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>().scoreChange(100, false);
+            } catch (Exception e)
+            {
+                Debug.Log("Couldn't find score object");
+            }
+
         alive = false;
         // animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
@@ -277,5 +288,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+
 }

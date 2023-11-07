@@ -14,6 +14,10 @@ public class SceneSwitcher : MonoBehaviour
     
 
     public void nextScene(){
+
+        DeathCounter.ResetTimer();
+        
+
         switch (SceneManager.GetActiveScene().name)
         {
         case "01":
@@ -149,6 +153,7 @@ public class SceneSwitcher : MonoBehaviour
         {
 
         }
+
 
         //al = GameObject.Find("Main Camera").GetComponent<AudioListener>();
     }
