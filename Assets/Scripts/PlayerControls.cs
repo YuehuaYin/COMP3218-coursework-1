@@ -147,7 +147,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         // Right Click to melee
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.Space))
         {
             Melee();
         }
@@ -236,7 +236,6 @@ public class PlayerControls : MonoBehaviour
             deathTimer -= Time.deltaTime;
             if (deathTimer <=0)
             {           
-                DeathCounter.deaths+=1;
                 deathText.text = DeathCounter.deaths.ToString();
                 sceneSwitcher.restartScene();
             }

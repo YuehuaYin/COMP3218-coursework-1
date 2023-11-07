@@ -26,12 +26,4 @@ public class ThiefShoot : MonoBehaviour
             bullet.transform.Translate(move * Time.deltaTime);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("AmmoPickup"))
-        {
-            Destroy(collision.gameObject);
-        }
-    } 
 }
