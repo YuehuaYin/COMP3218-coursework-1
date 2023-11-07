@@ -42,6 +42,7 @@ public class PlayerControls : MonoBehaviour
     private SpriteRenderer sp;
     public GameObject model;
     private bool reset = false;
+    public AudioSource invisSound;
 
 
     // Start is called before the first frame update
@@ -269,7 +270,7 @@ public class PlayerControls : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-       if (collision.gameObject.CompareTag("Enemy") && !invincible)
+       if ((collision.gameObject.CompareTag("Enemy") || (collision.gameObject.CompareTag("Boss"))) && !invincible)
         {
             /*
             healthbar.GetComponent<Health>().Damage(1);
@@ -305,6 +306,7 @@ public class PlayerControls : MonoBehaviour
             Destroy(collision.gameObject);
         } else if (collision.CompareTag("InvisibilityPotion"))
         {
+            invisSound.Play();
             invis = true;
             invisTimer = 5;
             sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);

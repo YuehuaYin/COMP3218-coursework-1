@@ -2,6 +2,7 @@ using Minifantasy;
 using Minifantasy.Dungeon;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class ThiefAnimation2 : MonoBehaviour
@@ -14,6 +15,7 @@ public class ThiefAnimation2 : MonoBehaviour
     public float invisTimer;
     public GameObject model;
     private SpriteRenderer sp;
+    private float damageTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,14 @@ public class ThiefAnimation2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
+        if (!alive)
+        {
+            return;
+        }
+        if (damageTimer > 0)
+        {
+            damageTimer -= Time.deltaTime;
+        } else if (rb.velocity != Vector2.zero && alive && animMode != "Walk")
         {
             //animator.TurnOffCurrentParameter();
             animator.ToggleAnimation("Walk");
@@ -53,7 +62,12 @@ public class ThiefAnimation2 : MonoBehaviour
             animator.ToggleXDirection(-1);
 
         }
-        if (rb.velocity.y > 0)
+        float ratio = rb.velocity.y;
+        if (rb.velocity.x != 0)
+        {
+            ratio = rb.velocity.y / Mathf.Abs(rb.velocity.x);
+        }
+        if (ratio > 0.2)
         {
             animator.ToggleYDirection(1);
         }
@@ -80,5 +94,22 @@ public class ThiefAnimation2 : MonoBehaviour
                 sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 1);
             }
         }
+    }
+
+    public void left()
+    {
+        animator.ToggleXDirection(-1);
+    }
+    public void Damage()
+    {
+        damageTimer = 0.5f;
+        animator.ToggleAnimation("Dmg");
+        animMode = "Dmg";
+    }
+    public void death()
+    {
+        animator.ToggleAnimation("Die");
+        animMode = "Die";
+        alive = false;
     }
 }

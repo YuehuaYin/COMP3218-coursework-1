@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - DeathCounter
   - InvisibilityPotion
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - Floor
   - HigherFloor
   - Spikes
-  - 
-  - 
+  - Boss
+  - AmmoPickup
   - 
   - 
   - 
@@ -51,6 +52,9 @@ TagManager:
   m_SortingLayers:
   - name: Floor
     uniqueID: 2112893095
+    locked: 0
+  - name: Floor Object
+    uniqueID: 4174601581
     locked: 0
   - name: Enemy Sight
     uniqueID: 2556866831

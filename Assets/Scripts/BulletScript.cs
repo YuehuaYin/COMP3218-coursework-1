@@ -23,7 +23,7 @@ public class BulletScript : MonoBehaviour
 
     void Update() 
     {
-        transform.Translate(move);
+        transform.Translate(move * Time.deltaTime);
         timer += Time.deltaTime;
         if (timer > 0.02f)
         {
@@ -45,7 +45,7 @@ public class BulletScript : MonoBehaviour
     {
 
         Debug.Log("Trigger entered bullet " + collision.tag);
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Wall") ) 
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Wall") || collision.CompareTag("Boss") ) 
         {
             Destroy(gameObject);
         }

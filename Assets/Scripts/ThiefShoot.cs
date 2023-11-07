@@ -23,7 +23,7 @@ public class ThiefShoot : MonoBehaviour
     void Update() 
     {
         if (bullet != null){
-            bullet.transform.Translate(move);
+            bullet.transform.Translate(move * Time.deltaTime);
         }
     }
 
