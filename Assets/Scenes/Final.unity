@@ -18784,6 +18784,7 @@ MonoBehaviour:
   max: 3
   target: {fileID: 1609713974}
   bulletPrefab: {fileID: 4457006884165051676, guid: 2afe23b6052d72247be15c7f11c7febb, type: 3}
+  shootCooldown: 1
 --- !u!4 &2032696547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1304578207326236161, guid: 61d1fa83c109f774ba4e4b18e0af8b83, type: 3}
@@ -18949,6 +18950,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4980368143300767928, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980368143300767928, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980368143300767928, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
