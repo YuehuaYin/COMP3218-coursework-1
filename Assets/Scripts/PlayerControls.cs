@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Minifantasy.Dungeon;
 using Unity.VisualScripting;
@@ -350,7 +351,12 @@ public class PlayerControls : MonoBehaviour
 
         if (collision.CompareTag("Goal"))
         {
-            int timerScore = 200 - 5 * DeathCounter.timer;
+            int timeDecrease = 5;
+            if (SceneManager.GetActiveScene().name == "Final"){
+                timeDecrease = 2;
+            }
+
+            int timerScore = 200 - timeDecrease * DeathCounter.timer;
             if (timerScore < 0)
             {
                 timerScore = 0;
