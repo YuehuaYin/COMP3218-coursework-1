@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class BoxScript : MonoBehaviour
+public class PlayerStuckFix : MonoBehaviour
 {
     private Vector3 adjust = Vector3.zero;
     private int wallCount;
@@ -14,7 +12,8 @@ public class BoxScript : MonoBehaviour
     public GameObject W;
     public float length;
     private Rigidbody2D rb;
-    private int colCount = 0;
+    private bool wallTouch = false;
+    private Vector3 prevPosition;
 
 
     // Start is called before the first frame update
@@ -26,7 +25,7 @@ public class BoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity == Vector2.zero && colCount > 0)
+        if ((rb.velocity == Vector2.zero  || prevPosition == transform.position && rb.velocity != Vector2.zero)&& wallTouch)
         {
             fix(length * Time.deltaTime);
         }
@@ -34,21 +33,18 @@ public class BoxScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (collision.gameObject.CompareTag("HigherFloor") || collision.gameObject.CompareTag("Wall"))
+
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            adjust = transform.position - collision.transform.position;
-        } else
-        {
-            colCount++;
+            wallTouch = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            colCount--;
-            fix(length);
+            wallTouch = false;
+            
         }
     }
 
@@ -71,7 +67,4 @@ public class BoxScript : MonoBehaviour
             transform.position += new Vector3(1, 0, 0) * length2;
         }
     }
-
 }
-    
-

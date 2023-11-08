@@ -20,6 +20,7 @@ public class AggroBoss : MonoBehaviour
     private bool targetOn = false;
     private bool bulletReady = true;
     private TargetScript ts;
+    public float shootCooldown;
 
 
     // Start is called before the first frame update
@@ -125,7 +126,7 @@ public class AggroBoss : MonoBehaviour
         if (targetOn)
         {
             targetTimer += Time.deltaTime;
-            if (targetTimer > 3)
+            if (targetTimer > shootCooldown +1)
             {
                 targetTimer = 0;
                 bulletReady = true;
@@ -140,7 +141,7 @@ public class AggroBoss : MonoBehaviour
                     target.transform.position = player.transform.position;
                 }
             }
-            else if (targetTimer > 2 && bulletReady)
+            else if (targetTimer > shootCooldown && bulletReady)
             {
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 ts.shoot();

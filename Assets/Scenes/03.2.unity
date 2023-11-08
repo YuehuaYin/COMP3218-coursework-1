@@ -3416,7 +3416,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7979,11 +7979,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2678658597604118902, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 170
+      value: 153.7
       objectReference: {fileID: 0}
     - target: {fileID: 2827029681894096820, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835057418495934343, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.1
       objectReference: {fileID: 0}
     - target: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Pivot.x
@@ -8065,13 +8069,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7311070212784974218, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18
+      objectReference: {fileID: 0}
     - target: {fileID: 7555510850281275510, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 9017290341925742473, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 170
+      value: 155.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
