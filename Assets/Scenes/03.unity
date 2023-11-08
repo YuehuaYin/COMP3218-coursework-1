@@ -491,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoplayer: {fileID: 0}
   button: {fileID: 0}
+  skipbutton: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!1 &326406392
 GameObject:
@@ -1285,6 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoplayer: {fileID: 0}
   button: {fileID: 0}
+  skipbutton: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!1 &767902663
 GameObject:
@@ -6397,7 +6399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735919965577931694, guid: a8ef8b5925468084aafce5390597a338, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7735919965577931694, guid: a8ef8b5925468084aafce5390597a338, type: 3}
       propertyPath: m_LocalPosition.y

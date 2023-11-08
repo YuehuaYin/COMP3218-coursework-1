@@ -55,6 +55,7 @@ public class PlayerControls : MonoBehaviour
     private float ammoRespawnTimer = 0;
     private bool shoot = false;
     private Flash fl;
+    public AudioSource shootSound;
 
 
     // Start is called before the first frame update
@@ -129,18 +130,18 @@ public class PlayerControls : MonoBehaviour
             walkSound.volume = walkVolume;
         }
 
-        if (rb.velocity.x > 0)
+        if (rb.velocity.x > 0.5)
         {
             animator.ToggleXDirection(1);
-        } else if (rb.velocity.x < 0)
+        } else if (rb.velocity.x < -0.5)
         {
             animator.ToggleXDirection(-1);
 
         } 
-        if (rb.velocity.y > 0)
+        if (rb.velocity.y > 0.5)
         {
             animator.ToggleYDirection(1);
-        } else if (rb.velocity.y < 0) {
+        } else if (rb.velocity.y < -0.5) {
             animator.ToggleYDirection(-1);
         }
 
@@ -317,6 +318,7 @@ public class PlayerControls : MonoBehaviour
             ammo.text = ammoCount.ToString();
             shoot = true;
             ammoRespawnTimer = 2;
+            shootSound.Play();
         }
     }
 

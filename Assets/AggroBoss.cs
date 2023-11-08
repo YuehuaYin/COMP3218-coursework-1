@@ -21,6 +21,7 @@ public class AggroBoss : MonoBehaviour
     private bool bulletReady = true;
     private TargetScript ts;
     public float shootCooldown;
+    public AudioSource shootSound;
 
 
     // Start is called before the first frame update
@@ -145,6 +146,7 @@ public class AggroBoss : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 ts.shoot();
+                shootSound.Play();
 
                 
                 bulletReady = false;

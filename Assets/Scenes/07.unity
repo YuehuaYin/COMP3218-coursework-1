@@ -488,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoplayer: {fileID: 0}
   button: {fileID: 0}
+  skipbutton: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!1001 &95173463
 PrefabInstance:
@@ -5702,6 +5703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoplayer: {fileID: 0}
   button: {fileID: 0}
+  skipbutton: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!1001 &721563428
 PrefabInstance:
@@ -6944,6 +6946,7 @@ GameObject:
   - component: {fileID: 1256963716}
   - component: {fileID: 1256963718}
   - component: {fileID: 1256963717}
+  - component: {fileID: 1256963719}
   m_Layer: 9
   m_Name: Walls
   m_TagString: Wall
@@ -8381,6 +8384,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1256963719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256963712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0820a6c2218c8f34bb3828b7625abf15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1309249946
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Flash : MonoBehaviour
 {
-    public SpriteRenderer im;
+    public Image im;
     private float flashTimer;
     private Color c;
     private float flashMultiplier;

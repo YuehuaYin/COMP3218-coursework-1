@@ -18,17 +18,17 @@ public class BulletScript : MonoBehaviour
         direction.Normalize();
         move = direction * speed;
         Debug.Log(move);
-        GetComponent<CapsuleCollider2D>().enabled = false;
+        //GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
     void Update() 
     {
         transform.Translate(move * Time.deltaTime);
-        timer += Time.deltaTime;
+       /* timer += Time.deltaTime;
         if (timer > 0.02f)
         {
             GetComponent<CapsuleCollider2D>().enabled = true;
-        }
+        }*/
         
     }
 
