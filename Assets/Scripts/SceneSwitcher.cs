@@ -87,12 +87,14 @@ public class SceneSwitcher : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer video)
     {
+
         SceneManager.LoadScene("01");
         
     }
 
 
     public void restartScene(){
+        DeathCounter.ResetTimer();
         DeathCounter.deaths += 1;
         /*
         if (DeathCounter.score > initialScore)
