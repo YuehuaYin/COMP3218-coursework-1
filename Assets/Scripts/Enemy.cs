@@ -3,7 +3,7 @@ using Minifantasy.Dungeon;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -292,6 +292,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(ammoPickup);
             }
+            GameObject.Find("Canvas").transform.Find("Flash").gameObject.GetComponent<Flash>().whiteflash();
         }
     }
 

@@ -13,13 +13,16 @@ public class EndScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         score.GetComponent<TextMeshProUGUI>().text = "Score: " + DeathCounter.score;
 
         deaths.GetComponent<TextMeshProUGUI>().text = "Deaths: " + DeathCounter.deaths;
 
-        time.GetComponent<TextMeshProUGUI>().text = "Total time: " + DeathCounter.totalTime;
+        time.GetComponent<TextMeshProUGUI>().text = "Total time: " +  (int) DeathCounter.totalTime;
 
-        float rankScore = DeathCounter.score - DeathCounter.deaths * 50 - DeathCounter.totalTime * 10;
+        float rankScore = DeathCounter.score - DeathCounter.deaths * 50 -  (int) DeathCounter.totalTime * 10;
         string rank = "S";
         Color rankColor = Color.blue;
         if (rankScore < -1000)

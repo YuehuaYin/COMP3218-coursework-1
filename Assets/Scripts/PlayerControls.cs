@@ -53,6 +53,7 @@ public class PlayerControls : MonoBehaviour
     private GameObject ammoPickup;
     private float ammoRespawnTimer = 0;
     private bool shoot = false;
+    private Flash fl;
 
 
     // Start is called before the first frame update
@@ -80,8 +81,9 @@ public class PlayerControls : MonoBehaviour
             scoreText.text = DeathCounter.score.ToString();
             initialScore = DeathCounter.score;
             si = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>();
-
-            if (DeathCounter.timer == 0 && DeathCounter.prevTimerScore > 0)
+        fl = GameObject.Find("Canvas").transform.Find("Flash").gameObject.GetComponent<Flash>();
+        
+        if (DeathCounter.timer == 0 && DeathCounter.prevTimerScore > 0)
             {
                 si.scoreChange(DeathCounter.prevTimerScore, true);
                 Debug.Log("Time score");
@@ -298,6 +300,7 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
+        DeathCounter.totalTime += Time.deltaTime;
     }
 
     // Fire ranged attack
@@ -373,12 +376,20 @@ public class PlayerControls : MonoBehaviour
             ammo.text = ammoCount.ToString();
             ammoPickup = collision.gameObject;
             //Destroy(collision.gameObject);
+            if (fl != null)
+            {
+                fl.whiteflash();
+            }
         } else if (collision.CompareTag("InvisibilityPotion"))
         {
             invisSound.Play();
             invis = true;
             invisTimer = 5;
             sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);
+            if (fl != null)
+            {
+                fl.whiteflash();
+            }
         } else if (collision.CompareTag("Coin"))
         {
             coinSound.Play();
@@ -393,7 +404,10 @@ public class PlayerControls : MonoBehaviour
             {
                 si.scoreChange(200, false);
             }
-
+            if (fl != null)
+            {
+                fl.whiteflash();
+            }
         }
     } 
 
@@ -414,7 +428,7 @@ public class PlayerControls : MonoBehaviour
             walkSound.Pause();
             if (initialScore - 50 < 0)
             {
-                si.scoreChange(-initialScore, false);
+                si.scoreChange(initialScore - DeathCounter.score, false);
             }
             else
             {
@@ -429,6 +443,10 @@ public class PlayerControls : MonoBehaviour
             if (scoreText != null)
             {
                 scoreText.text = DeathCounter.score.ToString();
+            }
+            if (fl != null)
+            {
+                fl.blackflash();
             }
         }
     }

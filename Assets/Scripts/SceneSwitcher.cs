@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
@@ -133,9 +133,18 @@ public class SceneSwitcher : MonoBehaviour
         {
 
         }
+        DeathCounter.deaths = 0;
+        
+        DeathCounter.score = 0;
+        DeathCounter.timer = 0;
+        DeathCounter.prevTimerScore = 0;
+        DeathCounter.prevScore = 0;
+        DeathCounter.totalTime = 0;
+        DeathCounter.glowTimer = 0;
 
 
-    }
+
+}
 
     public void Update()
     {

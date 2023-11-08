@@ -103,7 +103,10 @@ public class ThiefBossScript : MonoBehaviour
     private void Damage()
     {
         hp--;
-        
+        try
+        {
+            GameObject.Find("Canvas").transform.Find("Flash").gameObject.GetComponent<Flash>().whiteflash();
+        } catch { }
         
         GetComponent<ThiefAnimation2>().Damage();
         
