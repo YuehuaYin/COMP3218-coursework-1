@@ -74,7 +74,7 @@ public class EndScreen : MonoBehaviour
             rankColor = Color.green;
             rank = "B";
         }
-        else if (rankScore < 3000)
+        else if (rankScore < 2000)
         {
             rankColor = Color.green;
             rank = "A";

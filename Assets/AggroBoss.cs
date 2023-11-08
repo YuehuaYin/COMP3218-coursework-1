@@ -60,7 +60,10 @@ public class AggroBoss : MonoBehaviour
                 ts.disappear();
             }
             dir = rb.velocity;
-            aggro = false;
+            if (aggro)
+            {
+                unaggro();
+            }
             sp.color = Color.blue;
             
         } else if (aggro)
