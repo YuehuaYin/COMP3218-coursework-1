@@ -14,6 +14,7 @@ public class EndScreen : MonoBehaviour
     public GameObject time;
     public GameObject rankText;
     public GameObject background;
+    public GameObject results;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class EndScreen : MonoBehaviour
         skipbutton.SetActive(false);
         background.SetActive(true);
         start.SetActive(true);
+        results.SetActive(true);
+
 
         score.GetComponent<TextMeshProUGUI>().text = "Score: " + DeathCounter.score;
 

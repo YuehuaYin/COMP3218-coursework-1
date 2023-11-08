@@ -127,6 +127,7 @@ public class SceneSwitcher : MonoBehaviour
         try
         {
             GameObject.Find("Pause").SetActive(false);
+            GameObject.Find("Results").SetActive(false);
         } catch (Exception e)
         {
 
@@ -195,5 +196,10 @@ public class SceneSwitcher : MonoBehaviour
     public void gameQuit()
     {
         Application.Quit();
+    }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene("01");
     }
 }
