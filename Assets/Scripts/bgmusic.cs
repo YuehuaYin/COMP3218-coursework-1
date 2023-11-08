@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -9,6 +10,7 @@ public class bgmusic : MonoBehaviour
     public AudioSource intenseSong;
     private string mode = "calm";
     private int aggroCount = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +34,19 @@ public class bgmusic : MonoBehaviour
         aggroCount++;
         if (mode != "intense")
         {
+
             //calmSong.pitch = 1.5f;
             //calmSong.volume = 0.5f;
             calmSong.reverbZoneMix = 0;
             mode = "intense";
+            DeathCounter.glowTimer = 0;
+            try
+            {
+                GameObject.Find("Canvas").transform.Find("GlowBorder").GetComponent<GlowBorder>().red();
+            } catch (Exception e)
+            {
+
+            }
         }
     }
 
@@ -58,11 +69,13 @@ public class bgmusic : MonoBehaviour
         {
             calmSong.pitch += Time.deltaTime *0.5f;
             calmSong.volume += Time.deltaTime *0.3f;
+            DeathCounter.glowTimer += Time.deltaTime;
 
         } else if (mode == "calm" && calmSong.pitch > 1)
         {
             calmSong.pitch -= Time.deltaTime * 0.5f;
             calmSong.volume -= Time.deltaTime * 0.3f;
+            DeathCounter.glowTimer -= Time.deltaTime;
 
         }
     }

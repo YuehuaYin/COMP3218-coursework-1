@@ -764,6 +764,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 367979844483688901, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: glow
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 624154215296836721, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Name
       value: Play
@@ -898,6 +902,8 @@ PrefabInstance:
     - {fileID: 6709603665332761316, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     - {fileID: 36046786528714788, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     - {fileID: 8195467547441614177, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+    - {fileID: 3056166431361321288, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+    - {fileID: 4180049271374924548, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       insertIndex: 0

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 public class Aggro : MonoBehaviour
@@ -20,7 +20,7 @@ public class Aggro : MonoBehaviour
     {
         
         Vector2 dir = enemy.GetComponent<Rigidbody2D>().velocity;
-        if (dir.magnitude > 0.3 && !aggro || (dir.x !=0 && dir.y != 0))
+        if ((dir.magnitude > 0.3 && !aggro) || (Mathf.Abs(dir.x) >0.05 && Mathf.Abs(dir.y) > 0.05))
         {
             dir.Normalize();
             /*
