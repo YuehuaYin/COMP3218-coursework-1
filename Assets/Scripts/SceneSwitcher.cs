@@ -93,7 +93,7 @@ public class SceneSwitcher : MonoBehaviour
 
 
     public void restartScene(){
-        //DeathCounter.deaths += 1;
+        DeathCounter.deaths += 1;
         /*
         if (DeathCounter.score > initialScore)
         {

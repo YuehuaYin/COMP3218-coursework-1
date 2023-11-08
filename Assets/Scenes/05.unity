@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: tutorial
       value: 
       objectReference: {fileID: 449785438}
+    - target: {fileID: 1139586589373113535, guid: be9000c174f30614298c6fa88d76607f, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 4086555771680368372, guid: be9000c174f30614298c6fa88d76607f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.770466
@@ -7438,7 +7442,6 @@ SceneRoots:
   - {fileID: 1667568100}
   - {fileID: 81502238}
   - {fileID: 744560631}
-  - {fileID: 492448938}
   - {fileID: 796366999}
   - {fileID: 1422843520}
   - {fileID: 1418398839}

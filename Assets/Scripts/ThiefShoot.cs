@@ -40,4 +40,11 @@ public class ThiefShoot : MonoBehaviour
             }
         }
     }
+
+    private void Start()
+    {
+        target.SetActive(true);
+        ts = target.GetComponent<TargetScript>();
+        ts.appear();
+    }
 }
