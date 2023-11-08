@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GlowBorder : MonoBehaviour
 {
-    public Image im;
+    public SpriteRenderer im;
     private bool red2 = true;
     private float blackTimer = 0;
     // Start is called before the first frame update

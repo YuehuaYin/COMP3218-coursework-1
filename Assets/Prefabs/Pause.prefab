@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3584371469894138773, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 32709
+      objectReference: {fileID: 0}
     - target: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -872,6 +876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6949902509679138640, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 32709
+      objectReference: {fileID: 0}
     - target: {fileID: 7501633355351045316, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: play
@@ -904,6 +912,9 @@ PrefabInstance:
     - {fileID: 8195467547441614177, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     - {fileID: 3056166431361321288, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     - {fileID: 4180049271374924548, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+    - {fileID: 3121563343328745973, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+    - {fileID: 4443527484210429705, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+    - {fileID: 1929524914290390544, guid: 3b5ab1782279335428532edcaada771a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       insertIndex: 0
