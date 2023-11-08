@@ -50,6 +50,9 @@ public class PlayerControls : MonoBehaviour
     private int initialScore = 0;
     private ScoreIndication si;
     public AudioSource coinSound;
+    private GameObject ammoPickup;
+    private float ammoRespawnTimer = 0;
+    private bool shoot = false;
 
 
     // Start is called before the first frame update
@@ -282,6 +285,20 @@ public class PlayerControls : MonoBehaviour
             }
             timerText.text = ((int)timerTimer).ToString();
         }
+
+        if (shoot)
+        {
+            if (ammoRespawnTimer > 0) {
+                ammoRespawnTimer -= Time.deltaTime;
+            } else
+            {
+                shoot = false;
+                if (ammoPickup != null)
+                {
+                    ammoPickup.GetComponent<AmmoPickupScript>().respawnObj();
+                }
+            }
+        }
     }
 
     // Fire ranged attack
@@ -295,6 +312,8 @@ public class PlayerControls : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             ammoCount--;
             ammo.text = ammoCount.ToString();
+            shoot = true;
+            ammoRespawnTimer = 2;
         }
     }
 
@@ -353,7 +372,8 @@ public class PlayerControls : MonoBehaviour
 
             ammoCount++;
             ammo.text = ammoCount.ToString();
-            Destroy(collision.gameObject);
+            ammoPickup = collision.gameObject;
+            //Destroy(collision.gameObject);
         } else if (collision.CompareTag("InvisibilityPotion"))
         {
             invisSound.Play();

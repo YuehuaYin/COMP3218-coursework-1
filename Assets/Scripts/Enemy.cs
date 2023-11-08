@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public AudioSource deathSound;
     private bool invis = false;
     private bool boxTouch = false;
+    public GameObject ammoPickup;
+
 
     // Start is called before the first frame update
     void Start()
@@ -146,6 +148,7 @@ public class Enemy : MonoBehaviour
             deathTimer -= Time.deltaTime;
             if (deathTimer <= 0)
             {
+
                 Destroy(gameObject);
             }
         }
@@ -285,6 +288,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("BG music not available unless you start from home scene");
         }
+            if (ammoPickup != null)
+            {
+                Destroy(ammoPickup);
+            }
         }
     }
 

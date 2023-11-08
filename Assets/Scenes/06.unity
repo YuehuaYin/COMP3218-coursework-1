@@ -227,10 +227,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2855737350914464929, guid: be9000c174f30614298c6fa88d76607f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 325164981}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1139586589373113535, guid: be9000c174f30614298c6fa88d76607f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1228295894}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be9000c174f30614298c6fa88d76607f, type: 3}
 --- !u!4 &81502239 stripped
 Transform:
@@ -1008,7 +1005,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2770,26 +2767,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24de2591582cce742b9a6f33d9d3dcbb, type: 3}
---- !u!1 &1228295889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1139586589373113535, guid: be9000c174f30614298c6fa88d76607f, type: 3}
-  m_PrefabInstance: {fileID: 81502238}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1228295894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228295889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd60059779999946845f0fbc198da04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.1
-  enemy: {fileID: 0}
-  bulletPrefab: {fileID: 5789991513216921990, guid: d9e6bb57b1694654489c7bc25f706440, type: 3}
 --- !u!1 &1256963712
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,7 +4664,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

@@ -26,6 +26,7 @@ public class ThiefBossScript : MonoBehaviour
     public GameObject target;
     public AudioSource hitSound;
     public AudioSource deadSound;
+    public GameObject ammoPickup;
 
 
     // Start is called before the first frame update
@@ -114,6 +115,10 @@ public class ThiefBossScript : MonoBehaviour
                 path2.SetActive(true);
                 Destroy(heart3);
                 hitSound.Play();
+                if (ammoPickup != null)
+                {
+                    Destroy(ammoPickup);
+                }
                 break;
             case 1: 
                 path3.SetActive(true);
