@@ -5,14 +5,37 @@ using TMPro;
 
 public class EndScreen : MonoBehaviour
 {
-
+    public GameObject videoplayer;
+    private UnityEngine.Video.VideoPlayer video;
+    public GameObject start;
+    public GameObject skipbutton;
     public GameObject score;
     public GameObject deaths;
     public GameObject time;
     public GameObject rankText;
+    public GameObject background;
+
     // Start is called before the first frame update
     void Start()
     {
+        skipbutton.SetActive(true);
+        video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
+        video.Play();
+        video.loopPointReached += EndReached;
+    }
+
+    public void skipButton()
+    {
+        EndReached(video);
+    }
+
+    void EndReached(UnityEngine.Video.VideoPlayer video)
+    {
+        videoplayer.SetActive(false);
+        skipbutton.SetActive(false);
+        background.SetActive(true);
+        start.SetActive(true);
+
         score.GetComponent<TextMeshProUGUI>().text = "Score: " + DeathCounter.score;
 
         deaths.GetComponent<TextMeshProUGUI>().text = "Deaths: " + DeathCounter.deaths;

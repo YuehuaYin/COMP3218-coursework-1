@@ -1883,6 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoplayer: {fileID: 0}
   button: {fileID: 0}
+  skipbutton: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!1 &762853315 stripped
 GameObject:

@@ -9,6 +9,7 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject videoplayer;
     private UnityEngine.Video.VideoPlayer video;
     public GameObject button;
+    public GameObject skipbutton;
     public GameObject pauseMenu;
     private GameObject reset;
     private int initialScore;
@@ -80,6 +81,7 @@ public class SceneSwitcher : MonoBehaviour
     public void startButton()
     {
         button.SetActive(false);
+        skipbutton.SetActive(true);
         video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
         video.Play();
         video.loopPointReached += EndReached;
@@ -87,9 +89,12 @@ public class SceneSwitcher : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer video)
     {
-
         SceneManager.LoadScene("01");
-        
+    }
+
+    public void skipButton()
+    {
+        EndReached(video);
     }
 
 

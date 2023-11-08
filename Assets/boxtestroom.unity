@@ -195,7 +195,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -822,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5ccabc826b18347b700ed2aa88d561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interact: {fileID: 0}
 --- !u!61 &847699855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1394,7 +1395,13 @@ MonoBehaviour:
   knockForce: 1
   dashSpeed: 2
   ammoTextObject: {fileID: 1015026210}
+  deathTextObject: {fileID: 0}
   characterContainer: {fileID: 1479127656}
+  deathSound: {fileID: 0}
+  walkSound: {fileID: 0}
+  model: {fileID: 0}
+  invisSound: {fileID: 0}
+  coinSound: {fileID: 0}
 --- !u!212 &1206161065
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1537,7 +1544,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112893095
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
