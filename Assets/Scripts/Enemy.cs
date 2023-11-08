@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public AudioSource deathSound;
     private bool invis = false;
     private bool boxTouch = false;
+    public GameObject ammoPickup;
+
 
     // Start is called before the first frame update
     void Start()
@@ -146,6 +148,7 @@ public class Enemy : MonoBehaviour
             deathTimer -= Time.deltaTime;
             if (deathTimer <= 0)
             {
+
                 Destroy(gameObject);
             }
         }
@@ -226,7 +229,7 @@ public class Enemy : MonoBehaviour
 
     public void Aggro()
     {
-        if (!aggro)
+        if (!aggro && !player.GetComponent<PlayerControls>().getInvis())
         {
             aggro = true;
             try
@@ -252,7 +255,18 @@ public class Enemy : MonoBehaviour
 
     private void Death()
     {
-        if (alive) { 
+        if (alive) {
+
+            DeathCounter.score += 100;
+            try
+            {
+                GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = DeathCounter.score.ToString();
+                GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>().scoreChange(100, false);
+            } catch (Exception e)
+            {
+                Debug.Log("Couldn't find score object");
+            }
+
         alive = false;
         // animator.TurnOffCurrentParameter();
         animator.ToggleAnimation("Die");
@@ -274,8 +288,12 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("BG music not available unless you start from home scene");
         }
+            if (ammoPickup != null)
+            {
+                Destroy(ammoPickup);
+            }
         }
     }
 
-    
+
 }

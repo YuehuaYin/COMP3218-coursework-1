@@ -7,6 +7,7 @@ using TMPro;
 using Minifantasy.Dungeon;
 using Unity.VisualScripting;
 using Minifantasy;
+using System;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -43,6 +44,15 @@ public class PlayerControls : MonoBehaviour
     public GameObject model;
     private bool reset = false;
     public AudioSource invisSound;
+    private TMPro.TextMeshProUGUI timerText;
+    private TMPro.TextMeshProUGUI scoreText;
+    private float timerTimer = 0;
+    private int initialScore = 0;
+    private ScoreIndication si;
+    public AudioSource coinSound;
+    private GameObject ammoPickup;
+    private float ammoRespawnTimer = 0;
+    private bool shoot = false;
 
 
     // Start is called before the first frame update
@@ -59,6 +69,30 @@ public class PlayerControls : MonoBehaviour
         //animator = characterContainer.GetComponent<DUN_AnimatedCharacterSelection>();
         animator = characterContainer.GetComponent<SetAnimatorParameter>();
         sp = model.GetComponent<SpriteRenderer>();
+        
+      //  try
+      //  {
+            timerText = GameObject.Find("Canvas").transform.Find("Time").transform.Find("TimeCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
+
+            timerText.text = DeathCounter.timer.ToString();
+            timerTimer = DeathCounter.timer;
+            scoreText = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
+            scoreText.text = DeathCounter.score.ToString();
+            initialScore = DeathCounter.score;
+            si = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>();
+
+            if (DeathCounter.timer == 0 && DeathCounter.prevTimerScore > 0)
+            {
+                si.scoreChange(DeathCounter.prevTimerScore, true);
+                Debug.Log("Time score");
+                DeathCounter.prevTimerScore = 0;
+            }
+    //    }
+      /*  catch (Exception e)
+        {
+            Debug.Log("Couldn't find score object");
+            Debug.LogError(e);
+        }*/
     }
 
     // Update is called once per frame
@@ -147,7 +181,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         // Right Click to melee
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Space))
         {
             Melee();
         }
@@ -240,6 +274,30 @@ public class PlayerControls : MonoBehaviour
                 sceneSwitcher.restartScene();
             }
         }
+
+        timerTimer += Time.deltaTime;
+        if (timerText != null)
+        {
+            if (DeathCounter.timer >= (int)timerTimer - 1)
+            {
+                DeathCounter.timer = (int)timerTimer;
+            }
+            timerText.text = ((int)timerTimer).ToString();
+        }
+
+        if (shoot)
+        {
+            if (ammoRespawnTimer > 0) {
+                ammoRespawnTimer -= Time.deltaTime;
+            } else
+            {
+                shoot = false;
+                if (ammoPickup != null)
+                {
+                    ammoPickup.GetComponent<AmmoPickupScript>().respawnObj();
+                }
+            }
+        }
     }
 
     // Fire ranged attack
@@ -253,6 +311,8 @@ public class PlayerControls : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             ammoCount--;
             ammo.text = ammoCount.ToString();
+            shoot = true;
+            ammoRespawnTimer = 2;
         }
     }
 
@@ -290,6 +350,15 @@ public class PlayerControls : MonoBehaviour
 
         if (collision.CompareTag("Goal"))
         {
+            int timerScore = 200 - 5 * DeathCounter.timer;
+            if (timerScore < 0)
+            {
+                timerScore = 0;
+            }
+            DeathCounter.score += timerScore;
+            DeathCounter.prevTimerScore = timerScore;
+            DeathCounter.timer = 0;
+            Debug.Log("Timer: " + DeathCounter.timer);
             sceneSwitcher.nextScene();
         }
         else if (collision.CompareTag("Hazard"))
@@ -302,28 +371,66 @@ public class PlayerControls : MonoBehaviour
 
             ammoCount++;
             ammo.text = ammoCount.ToString();
-            Destroy(collision.gameObject);
+            ammoPickup = collision.gameObject;
+            //Destroy(collision.gameObject);
         } else if (collision.CompareTag("InvisibilityPotion"))
         {
             invisSound.Play();
             invis = true;
             invisTimer = 5;
             sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0.5f);
+        } else if (collision.CompareTag("Coin"))
+        {
+            coinSound.Play();
+            DeathCounter.score += 200;
+            Destroy(collision.gameObject);
+
+            if (scoreText != null)
+            {
+                scoreText.text = DeathCounter.score.ToString();
+            }
+            if (si != null)
+            {
+                si.scoreChange(200, false);
+            }
+
         }
     } 
 
     public void death()
     {
-        deathSound.Play();
-        Debug.Log("dead");
-        alive = false;
-      //  animator.TurnOffCurrentParameter();
-        animator.ToggleAnimation("Die");
-        deathTimer = 1.4f;
-        rb.velocity = Vector2.zero;
-        GetComponent<BoxCollider2D>().enabled = false;
-        
-        walkSound.Pause();
+        if (alive)
+        {
+            deathSound.Play();
+            Debug.Log("dead");
+
+            alive = false;
+            //  animator.TurnOffCurrentParameter();
+            animator.ToggleAnimation("Die");
+            deathTimer = 1.4f;
+            rb.velocity = Vector2.zero;
+            GetComponent<BoxCollider2D>().enabled = false;
+
+            walkSound.Pause();
+            if (initialScore - 50 < 0)
+            {
+                si.scoreChange(-initialScore, false);
+            }
+            else
+            {
+                si.scoreChange(initialScore - 50 - DeathCounter.score, false);
+            }
+            DeathCounter.score = initialScore-50;
+            
+            if (DeathCounter.score < 0)
+            {
+                DeathCounter.score = 0;
+            }
+            if (scoreText != null)
+            {
+                scoreText.text = DeathCounter.score.ToString();
+            }
+        }
     }
 
     public void resetButton()

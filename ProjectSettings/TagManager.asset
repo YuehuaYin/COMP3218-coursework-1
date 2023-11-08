@@ -16,6 +16,7 @@ TagManager:
   - DeathCounter
   - InvisibilityPotion
   - Boss
+  - Coin
   layers:
   - Default
   - TransparentFX

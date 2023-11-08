@@ -9,6 +9,10 @@ public class ThiefShoot : MonoBehaviour
     public GameObject enemy;
     public GameObject bulletPrefab;
     private GameObject bullet;
+    public GameObject target;
+    private TargetScript ts;
+    private bool disappear = true;
+    private float disappearTimer = 0;
 
     // Start is called before the first frame update
     public void shoot()
@@ -18,12 +22,22 @@ public class ThiefShoot : MonoBehaviour
         direction.z = 0;
         direction.Normalize();
         move = direction * speed;
+
+        disappear = false;
+        ts.shoot();
     }
 
     void Update() 
     {
         if (bullet != null){
             bullet.transform.Translate(move * Time.deltaTime);
+        } else if (ts != null && !disappear) {
+            disappearTimer += Time.deltaTime;
+            if (disappearTimer > 1)
+            {
+                disappear = true;
+                ts.disappear();
+            }
         }
     }
 }

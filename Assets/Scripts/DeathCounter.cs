@@ -5,4 +5,15 @@ using UnityEngine;
 public static class DeathCounter
 {
     public static int deaths = 0;
+    public static int score = 0;
+    public static int timer = 0;
+    public static int prevTimerScore = 0;
+    public static int prevScore = 0;
+    public static int totalTime = 0;
+
+    public static void ResetTimer()
+    {
+        totalTime += timer;
+        timer = 0;
+    }
 }

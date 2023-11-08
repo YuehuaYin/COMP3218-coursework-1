@@ -11,9 +11,14 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject button;
     public GameObject pauseMenu;
     private GameObject reset;
+    private int initialScore;
     
 
     public void nextScene(){
+
+        DeathCounter.ResetTimer();
+        DeathCounter.prevScore = DeathCounter.score;
+
         switch (SceneManager.GetActiveScene().name)
         {
         case "01":
@@ -88,8 +93,17 @@ public class SceneSwitcher : MonoBehaviour
 
 
     public void restartScene(){
-        DeathCounter.deaths += 1;
+        //DeathCounter.deaths += 1;
+        /*
+        if (DeathCounter.score > initialScore)
+        {
+            Debug.Log("Initial score " + initialScore);
+            DeathCounter.score = initialScore;
+        }*/
+        
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
         try
         {
             GameObject.Find("BGmusic").GetComponent<bgmusic>().calm();
@@ -142,13 +156,20 @@ public class SceneSwitcher : MonoBehaviour
     }
     public void Start()
     {
+        if (DeathCounter.prevScore < DeathCounter.score)
+        {
+            DeathCounter.score = DeathCounter.prevScore;
+        }
         try
         {
+            
             reset = GameObject.Find("Reset Level");
+            
         } catch (Exception e)
         {
 
         }
+
 
         //al = GameObject.Find("Main Camera").GetComponent<AudioListener>();
     }
