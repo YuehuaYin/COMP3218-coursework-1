@@ -767,6 +767,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -6040,6 +6044,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -9700,6 +9708,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973998289607864536, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8706027541220250255, guid: c66f8cb403dc4a245b7770a0bee92179, type: 3}

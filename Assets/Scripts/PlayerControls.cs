@@ -302,7 +302,7 @@ public class PlayerControls : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Pause Button").gameObject.SetActive(false);
         } else
         {
-            Debug.Log(paused);
+            //Debug.Log(paused);
         }
 
         /*if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
