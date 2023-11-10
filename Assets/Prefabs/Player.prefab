@@ -126,6 +126,7 @@ MonoBehaviour:
   invisSound: {fileID: 172138977652426106}
   coinSound: {fileID: 4701265941092232739}
   shootSound: {fileID: 4771086969941196427}
+  pauseMenu: {fileID: 0}
 --- !u!50 &6586769407332070882
 Rigidbody2D:
   serializedVersion: 4
@@ -185,7 +186,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.060328454}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -196,7 +197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62788963, y: 0.6278896}
+  m_Size: {x: 0.62788963, y: 0.6451263}
   m_EdgeRadius: 0
 --- !u!114 &2214517657274283136
 MonoBehaviour:
@@ -213,7 +214,8 @@ MonoBehaviour:
   videoplayer: {fileID: 0}
   button: {fileID: 0}
   skipbutton: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  selevelLvl: {fileID: 0}
+  selectButton: {fileID: 0}
 --- !u!82 &7734045538300252511
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1218,7 +1218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894699994669081514, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1884,7 +1884,8 @@ MonoBehaviour:
   videoplayer: {fileID: 0}
   button: {fileID: 0}
   skipbutton: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  selevelLvl: {fileID: 0}
+  selectButton: {fileID: 0}
 --- !u!1 &762853315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2470900893619998104, guid: 3b5ab1782279335428532edcaada771a, type: 3}

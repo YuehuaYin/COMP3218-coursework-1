@@ -10,11 +10,11 @@ public class SceneSwitcher : MonoBehaviour
     private UnityEngine.Video.VideoPlayer video;
     public GameObject button;
     public GameObject skipbutton;
-    public GameObject pauseMenu;
     private GameObject reset;
     private int initialScore;
+    public GameObject selevelLvl;
+    public GameObject selectButton;
     
-
     public void nextScene(){
 
         DeathCounter.ResetTimer();
@@ -81,6 +81,7 @@ public class SceneSwitcher : MonoBehaviour
     public void startButton()
     {
         button.SetActive(false);
+        GameObject.Find("SelectLevel").SetActive(false);
         skipbutton.SetActive(true);
         video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
         video.Play();
@@ -118,53 +119,11 @@ public class SceneSwitcher : MonoBehaviour
         {
             Debug.Log("No bg music");
         }
-        play();
     }
-    public void play()
-    {
-        Time.timeScale = 1.0f;
-        AudioListener.volume = 1;
-        try
-        {
-            GameObject.Find("Pause").SetActive(false);
-            GameObject.Find("Results").SetActive(false);
-        } catch (Exception e)
-        {
 
-        }
-        try
-        {
-            GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(true);
-        } catch (Exception e)
-        {
-
-        }
-
-
-
-}
-
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            if (pauseMenu != null)
-            {
-                pauseMenu.SetActive(true);
-                Time.timeScale = 0;
-                AudioListener.volume = 0;
-                Debug.Log(reset.transform.position);
-
-                reset.SetActive(false);
-            } else
-            {
-                Debug.Log("Pause menu is null");
-            }
-            
-        }
-    }
     public void Start()
     {
+
         if (DeathCounter.prevScore < DeathCounter.score)
         {
             DeathCounter.score = DeathCounter.prevScore;
@@ -193,7 +152,6 @@ public class SceneSwitcher : MonoBehaviour
     public void restartGame()
     {
         DeathCounter.deaths = 0;
-
         DeathCounter.score = 0;
         DeathCounter.timer = 0;
         DeathCounter.prevTimerScore = 0;
@@ -202,4 +160,34 @@ public class SceneSwitcher : MonoBehaviour
         DeathCounter.glowTimer = 0;
         SceneManager.LoadScene("01");
     }
+
+    public void home(){
+        DeathCounter.deaths = 0;
+        DeathCounter.score = 0;
+        DeathCounter.timer = 0;
+        DeathCounter.prevTimerScore = 0;
+        DeathCounter.prevScore = 0;
+        DeathCounter.totalTime = 0;
+        DeathCounter.glowTimer = 0;
+        AudioListener.volume = 1;
+        SceneManager.LoadScene("Home");
+        Destroy(GameObject.Find("BGmusic"));
+    }
+
+    public void selectLevelButton(){
+        button.SetActive(false);
+        selectButton.SetActive(false);
+        selevelLvl.SetActive(true);
+    }
+
+    public void backbutton(){
+        button.SetActive(true);
+        selectButton.SetActive(true);
+        selevelLvl.SetActive(false);
+    }
+
+    public void selectLevel(string sceneName){
+        SceneManager.LoadScene(sceneName);
+    }
+
 }

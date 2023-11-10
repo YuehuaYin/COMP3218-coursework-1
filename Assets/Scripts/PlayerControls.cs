@@ -56,6 +56,7 @@ public class PlayerControls : MonoBehaviour
     private bool shoot = false;
     private Flash fl;
     public AudioSource shootSound;
+    public GameObject pauseMenu;
 
 
     // Start is called before the first frame update
@@ -75,15 +76,16 @@ public class PlayerControls : MonoBehaviour
         
       //  try
       //  {
-            timerText = GameObject.Find("Canvas").transform.Find("Time").transform.Find("TimeCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-
-            timerText.text = DeathCounter.timer.ToString();
-            timerTimer = DeathCounter.timer;
-            scoreText = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-            scoreText.text = DeathCounter.score.ToString();
-            initialScore = DeathCounter.score;
-            si = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>();
+        timerText = GameObject.Find("Canvas").transform.Find("Time").transform.Find("TimeCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
+        timerText.text = DeathCounter.timer.ToString();
+        timerTimer = DeathCounter.timer;
+        scoreText = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreCount").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
+        scoreText.text = DeathCounter.score.ToString();
+        initialScore = DeathCounter.score;
+        si = GameObject.Find("Canvas").transform.Find("Score").transform.Find("ScoreIncrease").gameObject.GetComponent<ScoreIndication>();
         fl = GameObject.Find("Canvas").transform.Find("Flash").gameObject.GetComponent<Flash>();
+        pauseMenu = GameObject.Find("Pause");
+        play();
         
         if (DeathCounter.timer == 0 && DeathCounter.prevTimerScore > 0)
             {
@@ -228,7 +230,13 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+                AudioListener.volume = 0;
+                GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(false);
+        }
 
         /*if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
         {
@@ -469,6 +477,27 @@ public class PlayerControls : MonoBehaviour
     public bool getInvis()
     {
         return invis;
+    }
+
+    public void play()
+    {
+        Time.timeScale = 1.0f;
+        AudioListener.volume = 1;
+        try
+        {
+            GameObject.Find("Pause").SetActive(false);
+            GameObject.Find("Results").SetActive(false);
+        } catch (Exception e)
+        {
+
+        }
+        try
+        {
+            GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(true);
+        } catch (Exception e)
+        {
+
+        }
     }
 
 

@@ -433,7 +433,8 @@ MonoBehaviour:
   videoplayer: {fileID: 1530642376}
   button: {fileID: 647854764}
   skipbutton: {fileID: 1212670379}
-  pauseMenu: {fileID: 334436182}
+  selevelLvl: {fileID: 0}
+  selectButton: {fileID: 0}
 --- !u!1 &334436182
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,8 +644,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -180.4}
-  m_SizeDelta: {x: 178.86, y: 37.7283}
+  m_AnchoredPosition: {x: 0, y: -172.36}
+  m_SizeDelta: {x: 178.86, y: 29.692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &647854766
 MonoBehaviour:
@@ -692,7 +693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 322272863}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
-        m_MethodName: restartGame
+        m_MethodName: home
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2006,7 +2007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Again
+  m_text: home
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 60fd40fa12f6ebb4495bafd0a0a22df3, type: 2}
   m_sharedMaterial: {fileID: 6434540781424289667, guid: 60fd40fa12f6ebb4495bafd0a0a22df3, type: 2}
