@@ -86,6 +86,7 @@ public class SceneSwitcher : MonoBehaviour
         video = videoplayer.GetComponent<UnityEngine.Video.VideoPlayer>();
         video.Play();
         video.loopPointReached += EndReached;
+        GameObject.Find("Canvas").transform.Find("Quit").transform.gameObject.SetActive(false);
     }
 
     void EndReached(UnityEngine.Video.VideoPlayer video)

@@ -57,6 +57,13 @@ public class PlayerControls : MonoBehaviour
     private Flash fl;
     public AudioSource shootSound;
     public GameObject pauseMenu;
+    private bool paused = true;
+    private float accelerationTimerx = 1;
+    private float accelerationTimery = 1;
+    private float decelerationTimerx = 1;
+    private float decelerationTimery = 1;
+    public float accelerationMultiplier;
+    public float decelerationMultiplier;
 
 
     // Start is called before the first frame update
@@ -155,7 +162,62 @@ public class PlayerControls : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         if (alive)
         {
-            rb.velocity = new Vector2(x * speed, y * speed);
+            if (Input.GetKey(KeyCode.A) ||  Input.GetKey(KeyCode.D) ||  Input.GetKey(KeyCode.LeftArrow) ||  Input.GetKey(KeyCode.RightArrow))
+            {
+
+                accelerationTimerx += Time.deltaTime;
+
+                float speedx = x * Mathf.Exp(accelerationTimerx * accelerationMultiplier);
+                if (speedx > 1)
+                {
+                    speedx = 1;
+                }
+                else if (speedx < -1)
+                {
+                    speedx = -1;
+                }
+                rb.velocity = new Vector2(speedx * speed, rb.velocity.y);
+                decelerationTimerx = 1;
+            } else
+            {
+                decelerationTimerx -= Time.deltaTime * decelerationMultiplier;
+                if (decelerationTimerx < 0)
+                {
+                    decelerationTimerx = 0;
+                }
+
+                rb.velocity = new Vector2(x * speed * decelerationTimerx, rb.velocity.y);
+                accelerationTimerx = 1;
+            }
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ))
+            {
+
+                accelerationTimery += Time.deltaTime;
+                
+                float speedy = y * Mathf.Exp(accelerationTimery *accelerationMultiplier);
+                if (speedy > 1)
+                {
+                    speedy = 1;
+                } else if (speedy < -1)
+                {
+                    speedy = -1;
+                }
+                rb.velocity = new Vector2(rb.velocity.x, speedy * speed);
+                decelerationTimery = 1;
+            }
+            else
+            {
+                decelerationTimery -= Time.deltaTime * decelerationMultiplier;
+                if (decelerationTimery < 0)
+                {
+                    decelerationTimery = 0;
+                }
+
+                rb.velocity = new Vector2(rb.velocity.x, y * speed * decelerationTimery);
+                accelerationTimery = 1;
+            }
+            //Vector2 moveDirection = new Vector2(x, y).normalized;
+            //rb.AddForce(moveDirection * speed * Time.deltaTime);
         } else
         {
             rb.velocity = Vector2.zero;
@@ -230,12 +292,17 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) || paused)
         {
+            
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
                 AudioListener.volume = 0;
                 GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(false);
+            GameObject.Find("Canvas").transform.Find("Pause Button").gameObject.SetActive(false);
+        } else
+        {
+            Debug.Log(paused);
         }
 
         /*if (Input.GetKey(KeyCode.Space) && dashTimer <= 0 && rb.velocity != Vector2.zero)
@@ -481,6 +548,7 @@ public class PlayerControls : MonoBehaviour
 
     public void play()
     {
+        paused = false;
         Time.timeScale = 1.0f;
         AudioListener.volume = 1;
         try
@@ -494,11 +562,20 @@ public class PlayerControls : MonoBehaviour
         try
         {
             GameObject.Find("Canvas").transform.Find("Reset Level").gameObject.SetActive(true);
+            GameObject.Find("Canvas").transform.Find("Pause Button").gameObject.SetActive(true);
         } catch (Exception e)
         {
 
         }
+
     }
 
+    public void pauseButton()
+    {
+        paused = true;
+        Debug.Log(paused);
+    }
+
+    
 
 }

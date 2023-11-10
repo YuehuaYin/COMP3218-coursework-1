@@ -3073,6 +3073,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 547807496}
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pauseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 5755079889418017034, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3258,6 +3266,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 547807496}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: play
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3421,6 +3437,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 692572079}
   m_SourcePrefab: {fileID: 100100000, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+--- !u!114 &547807496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+  m_PrefabInstance: {fileID: 547807495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692572073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a377184fd0aea146b83a2e884038572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &553915685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21483,7 +21510,7 @@ CompositeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
@@ -21524,22 +21551,22 @@ CompositeCollider2D:
         Y: -30000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 8.99997, y: -6}
-      - {x: 8.99997, y: 0}
-      - {x: 0, y: 0.0000294}
-      - {x: 0.0000294, y: 1}
-      - {x: 9, y: 1.0000293}
-      - {x: 8.99997, y: 7}
-      - {x: -11, y: 6.9999704}
-      - {x: -10.99997, y: -6}
-    - - {x: 5, y: -2.9999707}
-      - {x: -7, y: -2.9999707}
-      - {x: -6.9999704, y: 4}
-      - {x: 5, y: 3.9999704}
-      - {x: 4.9999704, y: 3}
-      - {x: -6, y: 2.999971}
-      - {x: -5.999971, y: -2}
-      - {x: 5, y: -2.0000293}
+    - - {x: 8.99997, y: -6.1}
+      - {x: 8.99997, y: -0.1}
+      - {x: 0, y: -0.0999706}
+      - {x: 0.0000294, y: 0.9}
+      - {x: 9, y: 0.9000293}
+      - {x: 8.99997, y: 6.9}
+      - {x: -11, y: 6.8999705}
+      - {x: -10.99997, y: -6.1}
+    - - {x: 5, y: -3.0999706}
+      - {x: -7, y: -3.0999706}
+      - {x: -6.9999704, y: 3.9}
+      - {x: 5, y: 3.8999705}
+      - {x: 4.9999704, y: 2.9}
+      - {x: -6, y: 2.899971}
+      - {x: -5.999971, y: -2.1}
+      - {x: 5, y: -2.1000292}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

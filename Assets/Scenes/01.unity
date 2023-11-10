@@ -17855,6 +17855,14 @@ PrefabInstance:
       propertyPath: deathTextObject
       value: 
       objectReference: {fileID: 1953859486}
+    - target: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+      propertyPath: accelerationMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+      propertyPath: decelerationMultiplier
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8828957718736092444, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.008494
@@ -17908,6 +17916,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8828957718736092444, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
   m_PrefabInstance: {fileID: 1651441732}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1651441734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+  m_PrefabInstance: {fileID: 1651441732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a377184fd0aea146b83a2e884038572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1669540220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18003,6 +18022,14 @@ PrefabInstance:
     - target: {fileID: 2894699994669081514, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1651441734}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: play
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19760,6 +19787,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 78
       objectReference: {fileID: 0}
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1651441734}
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pauseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1953005659415231160, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Color.a
       value: 0.5254902
@@ -19774,7 +19809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827029681894096820, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 205
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3325616209459637767, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_LocalScale.x

@@ -1220,6 +1220,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 692572089}
+    - target: {fileID: 2949220666296555288, guid: 812ec0d1d430b24438339339fd37f2e2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: play
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1886,6 +1894,17 @@ MonoBehaviour:
   skipbutton: {fileID: 0}
   selevelLvl: {fileID: 0}
   selectButton: {fileID: 0}
+--- !u!114 &692572089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4851581962614362300, guid: 4a4c8a7d25167cb49908e5c144568681, type: 3}
+  m_PrefabInstance: {fileID: 547807495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692572073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a377184fd0aea146b83a2e884038572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &762853315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2470900893619998104, guid: 3b5ab1782279335428532edcaada771a, type: 3}
@@ -2051,7 +2070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306951879734231678, guid: d2a732a05bd9e5d4ea56d5cc79426a38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.99
+      value: 4.98
       objectReference: {fileID: 0}
     - target: {fileID: 1306951879734231678, guid: d2a732a05bd9e5d4ea56d5cc79426a38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18785,7 +18804,7 @@ CompositeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
@@ -18914,66 +18933,66 @@ CompositeCollider2D:
         Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 8.99997, y: -6}
-      - {x: 8.99997, y: 0}
-      - {x: 0, y: 0.0000294}
-      - {x: 0.0000294, y: 1}
-      - {x: 9, y: 1.0000293}
-      - {x: 8.99997, y: 7}
-      - {x: -11, y: 6.9999704}
-      - {x: -10.99997, y: -6}
-    - - {x: 34.999973, y: -5}
-      - {x: 35.00003, y: -4}
-      - {x: 44, y: -3.999971}
-      - {x: 44.00003, y: -1}
-      - {x: 47, y: -0.99997073}
-      - {x: 46.999973, y: 3}
-      - {x: 45, y: 3.0000293}
-      - {x: 44.999973, y: 6}
-      - {x: 30, y: 5.999971}
-      - {x: 30.000029, y: 3}
-      - {x: 41, y: 2.9999707}
-      - {x: 41.00003, y: 2}
-      - {x: 46, y: 1.9999707}
-      - {x: 45.999973, y: 0}
-      - {x: 43, y: -0.000029300001}
-      - {x: 42.999973, y: -3}
-      - {x: 38, y: -2.9999707}
-      - {x: 37.999973, y: -1}
-      - {x: 37, y: -1.0000293}
-      - {x: 36.999973, y: -3}
-      - {x: 34, y: -3.0000293}
-      - {x: 33.999973, y: -4}
-      - {x: 31, y: -3.9999704}
-      - {x: 31.000029, y: -1}
-      - {x: 35, y: -0.99997073}
-      - {x: 34.999973, y: 0}
-      - {x: 30, y: -0.000029300001}
-      - {x: 29.999971, y: -1}
-      - {x: 29, y: -1.0000293}
-      - {x: 29.000029, y: -2}
-      - {x: 30, y: -2.0000293}
-      - {x: 30.000029, y: -5}
-    - - {x: 44, y: 4.0000296}
-      - {x: 31, y: 4.0000296}
-      - {x: 31.000029, y: 5}
-      - {x: 44, y: 4.9999704}
-    - - {x: 7, y: -2.9999707}
-      - {x: -7, y: -2.9999707}
-      - {x: -6.9999704, y: 4}
-      - {x: 7, y: 3.9999704}
-      - {x: 6.9999704, y: 3}
-      - {x: -6, y: 2.999971}
-      - {x: -5.999971, y: -2}
-      - {x: 7, y: -2.0000293}
-    - - {x: 40.999973, y: -1}
-      - {x: 40.999973, y: 2}
-      - {x: 40, y: 1.9999708}
-      - {x: 39.999973, y: 1}
-      - {x: 35, y: 0.99997073}
-      - {x: 35.00003, y: 0}
-      - {x: 40, y: -0.0000294}
-      - {x: 40.00003, y: -1}
+    - - {x: 8.99997, y: -6.1}
+      - {x: 8.99997, y: -0.1}
+      - {x: 0, y: -0.0999706}
+      - {x: 0.0000294, y: 0.9}
+      - {x: 9, y: 0.9000293}
+      - {x: 8.99997, y: 6.9}
+      - {x: -11, y: 6.8999705}
+      - {x: -10.99997, y: -6.1}
+    - - {x: 34.999973, y: -5.1}
+      - {x: 35.00003, y: -4.1}
+      - {x: 44, y: -4.099971}
+      - {x: 44.00003, y: -1.1}
+      - {x: 47, y: -1.0999707}
+      - {x: 46.999973, y: 2.9}
+      - {x: 45, y: 2.9000294}
+      - {x: 44.999973, y: 5.9}
+      - {x: 30, y: 5.899971}
+      - {x: 30.000029, y: 2.9}
+      - {x: 41, y: 2.8999708}
+      - {x: 41.00003, y: 1.9}
+      - {x: 46, y: 1.8999707}
+      - {x: 45.999973, y: -0.1}
+      - {x: 43, y: -0.100029305}
+      - {x: 42.999973, y: -3.1}
+      - {x: 38, y: -3.0999706}
+      - {x: 37.999973, y: -1.1}
+      - {x: 37, y: -1.1000293}
+      - {x: 36.999973, y: -3.1}
+      - {x: 34, y: -3.1000292}
+      - {x: 33.999973, y: -4.1}
+      - {x: 31, y: -4.0999703}
+      - {x: 31.000029, y: -1.1}
+      - {x: 35, y: -1.0999707}
+      - {x: 34.999973, y: -0.1}
+      - {x: 30, y: -0.100029305}
+      - {x: 29.999971, y: -1.1}
+      - {x: 29, y: -1.1000293}
+      - {x: 29.000029, y: -2.1}
+      - {x: 30, y: -2.1000292}
+      - {x: 30.000029, y: -5.1}
+    - - {x: 44, y: 3.9000297}
+      - {x: 31, y: 3.9000297}
+      - {x: 31.000029, y: 4.9}
+      - {x: 44, y: 4.8999705}
+    - - {x: 7, y: -3.0999706}
+      - {x: -7, y: -3.0999706}
+      - {x: -6.9999704, y: 3.9}
+      - {x: 7, y: 3.8999705}
+      - {x: 6.9999704, y: 2.9}
+      - {x: -6, y: 2.899971}
+      - {x: -5.999971, y: -2.1}
+      - {x: 7, y: -2.1000292}
+    - - {x: 40.999973, y: -1.1}
+      - {x: 40.999973, y: 1.9}
+      - {x: 40, y: 1.8999708}
+      - {x: 39.999973, y: 0.9}
+      - {x: 35, y: 0.8999707}
+      - {x: 35.00003, y: -0.1}
+      - {x: 40, y: -0.1000294}
+      - {x: 40.00003, y: -1.1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -19423,6 +19442,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 692572089}
+    - target: {fileID: 932083945102663373, guid: 3b5ab1782279335428532edcaada771a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pauseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4980368143300767928, guid: 3b5ab1782279335428532edcaada771a, type: 3}
       propertyPath: m_Color.b
       value: 1

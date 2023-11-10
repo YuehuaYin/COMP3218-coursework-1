@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5303013828221862760}
   - component: {fileID: 7771245671945936400}
   - component: {fileID: 4830091327190636595}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InvisibilityPotion
   m_TagString: InvisibilityPotion
   m_Icon: {fileID: 0}

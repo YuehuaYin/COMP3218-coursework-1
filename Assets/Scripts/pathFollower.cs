@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class pathFollower : MonoBehaviour
@@ -105,10 +106,14 @@ public class pathFollower : MonoBehaviour
         }
         else if (follower.CompareTag("Player") || follower.CompareTag("Boss"))
         {
-            rb.velocity = currentSpeed;
+            Vector3 direct = CurrentPosition - follower.transform.position;
+            direct.Normalize();
+            rb.velocity = direct * speed;
         } else if (!follower.GetComponent<Enemy>().getAggro())
         {
-            rb.velocity = currentSpeed;
+            Vector3 direct= CurrentPosition - follower.transform.position;
+            direct.Normalize();
+            rb.velocity = direct * speed;
         }
         if (rb.velocity != Vector2.zero)
         {

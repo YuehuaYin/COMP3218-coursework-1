@@ -50,22 +50,22 @@ public class EndScreen : MonoBehaviour
         float rankScore = DeathCounter.score - DeathCounter.deaths * 50 -  (int) DeathCounter.totalTime * 10;
         string rank = "S";
         Color rankColor = Color.blue;
-        if (rankScore < -500)
+        if (rankScore < -3000)
         {
             rankColor = Color.red;
             rank = "E";
         }
-        else if (rankScore < -100)
+        else if (rankScore < -2000)
         {
             rankColor = Color.yellow;
             rank = "D";
         }
-        else if (rankScore < 200)
+        else if (rankScore < -1000)
         {
             rankColor = Color.yellow;
             rank = "C";
         }
-        else if (rankScore < 500)
+        else if (rankScore < 0)
         {
             rankColor = Color.green;
             rank = "B";
